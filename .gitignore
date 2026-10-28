@@ -1,5 +1,8 @@
 # Vendor code (explore team, pv-forecasting@b5a99bd) — local only, xem VENDOR.md
-src/
+src/drift.py
+src/evaluate.py
+src/ingest.py
+src/retrain.py
 jobs/
 pvdata/
 config/pipeline.yaml
