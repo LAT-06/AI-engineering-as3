@@ -11,11 +11,11 @@ never committed. CI passes on a cold runner (verified run green 2026-10-28;
 a first-run bootstrap promotes the initial champion, while every *replacement*
 still needs `approve=true`).
 #figure(
-  image("figs/fig_ev_ci.png", width: 90%),
+  image("../figs/fig_ev_ci.png", width: 90%),
   caption: [GitHub Actions runs of `Retrain on Push (Studio 9)` — push-triggered, cold-runner green after the bootstrap fix.],
 ) <fig-ci>
 
 #figure(
-  image("figs/fig_training_curve.png", width: 85%),
+  image("../figs/fig_training_curve.png", width: 85%),
   caption: [Champion v6 training curve (CPU): best val loss 0.00596 at epoch 7, early stop at epoch 16. VAL_RMSE 0.07718, TEST_RMSE 0.09454.],
 ) <fig-train>

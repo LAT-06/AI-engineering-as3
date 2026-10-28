@@ -10,7 +10,7 @@ PSI $> 0.20$ — to the Studio-9 layout (`train/train.csv` vs `data/new_data.csv
 On the demo sample it reports:
 
 #figure(
-  image("figs/fig_drift.png", width: 85%),
+  image("../figs/fig_drift.png", width: 85%),
   caption: [Drift signals vs thresholds: KS score 0.4783 (thr 0.40), target PSI 1.229 (thr 0.20). Both exceeded — exit code 2, retrain triggered.],
 ) <fig-drift>
 

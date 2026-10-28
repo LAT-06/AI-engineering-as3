@@ -8,13 +8,13 @@ minimal import-traced subset (`src/retrain.py`, `src/evaluate.py`,
 ingest and drift stacks were pruned (full provenance in PROVENANCE).
 
 #figure(
-  image("figs/fig_ev_commits.png", width: 90%),
+  image("../figs/fig_ev_commits.png", width: 90%),
   caption: [Semantic commit history on `main` — small reviewable steps (data, DVC, monitor, pipeline, vendor subset, CI).],
 ) <fig-commits>
 
 #heading(level: 2)[Pipeline]
 #figure(
-  image("figs/fig_pipeline.png", width: 90%),
+  image("../figs/fig_pipeline.png", width: 90%),
   caption: [The five DVC stages. `promote` is the human approval gate between training and evaluation.],
 ) <fig-pipeline>
 
@@ -22,7 +22,7 @@ ingest and drift stacks were pruned (full provenance in PROVENANCE).
 Data remote is the team's own Supabase S3 (`processed_data` bucket);
 `dvc push` versioned 12 outputs and `dvc status` reports everything up to date.
 #figure(
-  image("figs/fig_ev_dvc.png", width: 70%),
+  image("../figs/fig_ev_dvc.png", width: 70%),
   caption: [`dvc status` clean after `dvc repro` — all five stages reproducible.],
 ) <fig-dvcstatus>
 Training data: 6 monthly CSVs (2024-01→06, 55,310 rows), chronological
@@ -33,7 +33,7 @@ Six challengers were trained; each version is registered in MLflow and only
 better-than-champion versions upload checkpoints — the loop visibly converges:
 
 #figure(
-  image("figs/fig_rmse_versions.png", width: 85%),
+  image("../figs/fig_rmse_versions.png", width: 85%),
   caption: [Test RMSE per version. v4 (0.09089) was best at the time; v6 (0.09454, R² 0.8427) is the current champion.],
 ) <fig-rmse>
 
