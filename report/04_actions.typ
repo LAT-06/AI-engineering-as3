@@ -1,21 +1,50 @@
-// 04 — Actions: CI/CD workflow + training evidence.
+// 04 — Actions / CI-CD (expanded).
 #heading(level: 1)[Actions: Retrain on Push]
-`.github/workflows/retrain-on-push.yml` implements the three required triggers:
-(1) *push* — fires on `data/**`, `train/**`, `test/**`, `src/**`, `setup/**`,
-`dvc.yaml`, `config/pipeline.yaml`; (2) *schedule* — weekly cron
-(`0 18 * * 0`); (3) *manual* — `workflow_dispatch` with an `approve` flag wired
-to the promotion gate. Each run restores the MLflow registry from cache
-(champion continuity), runs `dvc repro`, pushes outputs, and uploads
-`studio9-reports` artifacts. Secrets (`SUPABASE_*`, `S3_*`) are GitHub Secrets,
-never committed. CI passes on a cold runner (verified run green 2026-10-28;
-a first-run bootstrap promotes the initial champion, while every *replacement*
-still needs `approve=true`).
-#figure(
-  image("../figs/fig_ev_ci.png", width: 90%),
-  caption: [GitHub Actions runs of `Retrain on Push (Studio 9)` — push-triggered, cold-runner green after the bootstrap fix.],
-) <fig-ci>
+`.github/workflows/retrain-on-push.yml` implements the three required triggers
+in one workflow. *Push* fires on data or code changes (`data/**`, `train/**`,
+`test/**`, `src/**`, `setup/**`, `dvc.yaml`, `config/pipeline.yaml`, the
+workflow itself). *Schedule* runs the identical pipeline weekly
+(`cron: 0 18 * * 0`) so drift is caught even with no new data. *Manual*
+(`workflow_dispatch`) exposes an `approve` flag wired straight to the promotion
+gate for live demos: run without approval to mint a candidate, re-run with
+`approve=true` to crown it champion in front of the markers.
+
+#heading(level: 2)[How a run works]
+Each run checks out the repo (vendor code is committed — no private-repo
+token needed), installs CPU-only torch plus the pinned requirements, restores
+the MLflow registry from cache (champion continuity across ephemeral runners),
+configures the DVC remote from secrets, runs `dvc repro`, pushes outputs back
+to S3, re-saves the registry cache, and uploads a `studio9-reports` artefact
+bundle. The drift gate writes its verdict to the job summary. Timeouts are
+capped at 60 minutes; training itself takes ~1 minute on CPU (early stopping,
+patience 10).
+
+#heading(level: 2)[Secrets]
+Five GitHub Secrets, all read-only credentials for the team's *own* Supabase
+project — never committed (`.env` and `.dvc/config.local` are git-ignored):
+`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `S3_ACCESS_KEY_ID`,
+`S3_SECRET_ACCESS_KEY`, `S3_ENDPOINT_URL`. Discord notification is
+best-effort: unset webhook logs a warning and continues, so CI never depends
+on chat infrastructure.
+
+#heading(level: 2)[Cold-runner story]
+The first CI run exposed a real bootstrap problem: a fresh runner has an empty
+registry, so the first model becomes `candidate`, the gate (correctly) stays
+shut, and `evaluate` fails with no champion. The fix keeps the gate honest —
+`setup/promote_champion.py` auto-promotes only when *no champion exists yet*
+and still requires `APPROVE=1` for every *replacement*. CI has been green since,
+including on cold runners:
 
 #figure(
+  image("../figs/fig_ev_ci.png", width: 90%),
+  caption: [GitHub Actions runs of `Retrain on Push (Studio 9)` — push-triggered, green after the bootstrap fix.],
+) <fig-ci>
+
+#heading(level: 2)[Training evidence]
+#figure(
   image("../figs/fig_training_curve.png", width: 85%),
-  caption: [Champion v6 training curve (CPU): best val loss 0.00596 at epoch 7, early stop at epoch 16. VAL_RMSE 0.07718, TEST_RMSE 0.09454.],
+  caption: [Champion v6 training curve (CPU): best val loss 0.00596 at epoch 7, early stop at epoch 16. VAL_RMSE 0.07718, TEST_RMSE 0.09454, R² 0.8427.],
 ) <fig-train>
+The curve is textbook healthy: train and validation losses fall together, the
+best checkpoint (not the last) is kept, and early stopping fires after 10 flat
+epochs — no overfitting, no wasted compute.
