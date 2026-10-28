@@ -10,6 +10,10 @@ to the promotion gate. Each run restores the MLflow registry from cache
 never committed. CI passes on a cold runner (verified run green 2026-10-28;
 a first-run bootstrap promotes the initial champion, while every *replacement*
 still needs `approve=true`).
+#figure(
+  image("figs/fig_ev_ci.png", width: 90%),
+  caption: [GitHub Actions runs of `Retrain on Push (Studio 9)` — push-triggered, cold-runner green after the bootstrap fix.],
+) <fig-ci>
 
 #figure(
   image("figs/fig_training_curve.png", width: 85%),

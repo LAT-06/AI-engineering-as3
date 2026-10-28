@@ -7,6 +7,11 @@ minimal import-traced subset (`src/retrain.py`, `src/evaluate.py`,
 `jobs/{retrain,evaluate,common}_*` plus the CSV downloader); `pvdata/`,
 ingest and drift stacks were pruned (full provenance in PROVENANCE).
 
+#figure(
+  image("figs/fig_ev_commits.png", width: 90%),
+  caption: [Semantic commit history on `main` — small reviewable steps (data, DVC, monitor, pipeline, vendor subset, CI).],
+) <fig-commits>
+
 #heading(level: 2)[Pipeline]
 #figure(
   image("figs/fig_pipeline.png", width: 90%),
@@ -16,6 +21,10 @@ ingest and drift stacks were pruned (full provenance in PROVENANCE).
 `dvc.yaml` defines `preprocess → train → promote → evaluate → monitor`.
 Data remote is the team's own Supabase S3 (`processed_data` bucket);
 `dvc push` versioned 12 outputs and `dvc status` reports everything up to date.
+#figure(
+  image("figs/fig_ev_dvc.png", width: 70%),
+  caption: [`dvc status` clean after `dvc repro` — all five stages reproducible.],
+) <fig-dvcstatus>
 Training data: 6 monthly CSVs (2024-01→06, 55,310 rows), chronological
 70/15/15 split (4/1/1 months; windows 18,479/4,681/4,620).
 
