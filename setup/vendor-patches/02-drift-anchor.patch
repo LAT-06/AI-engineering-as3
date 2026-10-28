@@ -1,0 +1,24 @@
+--- a/jobs/drift_pipeline/pipeline.py
++++ b/jobs/drift_pipeline/pipeline.py
+@@ -67,6 +67,13 @@
+     # Allow overriding window sizes via env vars
+     current_days   = int(os.environ.get("DRIFT_CURRENT_DAYS",   CURRENT_DAYS))
+     reference_days = int(os.environ.get("DRIFT_REFERENCE_DAYS", REFERENCE_DAYS))
++    # Basic slice: allow anchoring windows to the sample data range
++    # (demo data ends 2024-06-30, not today). Unset = today UTC.
++    ref_date_raw = os.environ.get("DRIFT_REFERENCE_DATE", "")
++    reference_date = None
++    if ref_date_raw:
++        from datetime import date as _date
++        reference_date = _date.fromisoformat(ref_date_raw)
+ 
+     try:
+         # ── Step 1: Load windows ───────────────────────────────────────────────
+@@ -79,6 +86,7 @@
+             load_windows(
+                 current_days=current_days,
+                 reference_days=reference_days,
++                reference_date=reference_date,
+             )
+ 
+         # ── Step 2: Drift detection ────────────────────────────────────────────

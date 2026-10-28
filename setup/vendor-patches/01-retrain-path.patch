@@ -1,0 +1,11 @@
+--- a/src/retrain.py
++++ b/src/retrain.py
+@@ -61,7 +61,7 @@
+         logger.info("🔶 DRY RUN — skipping MLflow logging, Supabase upload, and Discord.")
+ 
+     # Add repo root to path
+-    repo_root = Path(__file__).resolve().parent
++    repo_root = Path(__file__).resolve().parents[1]  # basic slice: entry points live in src/
+     if str(repo_root) not in sys.path:
+         sys.path.insert(0, str(repo_root))
+ 
