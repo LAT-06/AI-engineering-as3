@@ -13,6 +13,7 @@ cp "$TMP/drift.py" "$TMP/evaluate.py" "$TMP/ingest.py" "$TMP/retrain.py" "$DEST/
 cp -r "$TMP/jobs" "$DEST/"
 cp -r "$TMP/pvdata" "$DEST/" 2>/dev/null || true
 cp "$TMP/config/pipeline.yaml" "$DEST/config/"
+cp "$TMP/requirements.txt" "$DEST/" 2>/dev/null || true
 for p in "$(dirname "$0")"/vendor-patches/*.patch; do
   (cd "$DEST" && patch -p1 < "$p")
 done

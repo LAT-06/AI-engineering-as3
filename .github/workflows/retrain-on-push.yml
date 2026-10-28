@@ -1,0 +1,122 @@
+# Studio-9 retraining pipeline (basic slice).
+# Triggers: data/code push, weekly schedule, manual (+human approval gate).
+name: Retrain on Push (Studio 9)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "train/**"
+      - "test/**"
+      - "src/**"
+      - "dvc.yaml"
+      - "config/pipeline.yaml"
+      - ".github/workflows/retrain-on-push.yml"
+  schedule:
+    - cron: "0 18 * * 0" # weekly, Sun 18:00 UTC
+  workflow_dispatch:
+    inputs:
+      approve:
+        description: "Human approval: promote latest model to champion"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: studio9-retrain
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_RAW_DATA_BUCKET: processed_data
+      SUPABASE_BUCKET: processed_data
+      DRIFT_REFERENCE_DATE: "2024-07-01"
+      MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+      APPROVE: ${{ github.event.inputs.approve == 'true' && '1' || '0' }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+      S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-studio9-v1
+          restore-keys: ${{ runner.os }}-pip-studio9-
+
+      - name: Restore MLflow registry (champion continuity)
+        uses: actions/cache/restore@v4
+        with:
+          path: mlruns/mlflow.db
+          key: mlruns-${{ github.run_id }}
+          restore-keys: mlruns-
+
+      - name: Fetch vendor code (pinned + patched)
+        run: bash setup/fetch-vendor.sh .
+
+      - name: Install dependencies (CPU torch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install "torch==2.2.2" --index-url https://download.pytorch.org/whl/cpu
+          grep -v -e '^torch' -e 'psycopg\[binary\]' requirements.txt > /tmp/req-ci.txt
+          pip install -r /tmp/req-ci.txt
+
+      - name: Check secrets
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL empty"; exit 1; }
+          test -n "$SUPABASE_SERVICE_ROLE_KEY" || { echo "::error::SUPABASE_SERVICE_ROLE_KEY empty"; exit 1; }
+          test -n "$AWS_SECRET_ACCESS_KEY" || { echo "::error::S3 secrets empty"; exit 1; }
+
+      - name: Configure DVC remote (local-only creds)
+        run: |
+          dvc remote modify --local origin endpointurl "$S3_ENDPOINT_URL"
+          dvc remote modify --local origin access_key_id "$AWS_ACCESS_KEY_ID"
+          dvc remote modify --local origin secret_access_key "$AWS_SECRET_ACCESS_KEY"
+
+      - name: Run DVC pipeline
+        run: dvc repro
+
+      - name: Push DVC outputs
+        if: always()
+        run: dvc push || echo "::warning::dvc push failed"
+
+      - name: Drift gate summary
+        if: always()
+        run: |
+          python src/monitor.py || code=$?
+          echo "monitor exit: ${code:-0}" >> "$GITHUB_STEP_SUMMARY"
+          python -c "import json;d=json.load(open('reports/drift_report.json'));print('drift:',d['drift_detected'],'score:',d['ks']['drift_score'])" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Save MLflow registry
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: mlruns/mlflow.db
+          key: mlruns-${{ github.run_id }}
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio9-reports
+          path: |
+            reports/
+            artifacts/metrics/
+            artifacts/models/*.json
+            artifacts/preprocessing/
