@@ -13,3 +13,10 @@ requirements.txt
 .dvc/config.local
 __pycache__/
 *.pyc
+
+mlruns/
+
+# DVC pipeline outputs (versioned in S3 remote, see dvc.lock)
+/artifacts
+/reports
+/monitoring

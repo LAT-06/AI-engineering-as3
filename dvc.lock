@@ -1,0 +1,130 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess_new_data.py
+    deps:
+    - path: data/new_data.csv
+      hash: md5
+      md5: 5f77510632f8ef0c5190d63a66ef94f2
+      size: 16552
+    - path: src/preprocess_new_data.py
+      hash: md5
+      md5: b41aa5f3c959cf7447c39d1c126f880e
+      size: 1627
+    - path: train/train.csv
+      hash: md5
+      md5: fb0d7fde56bd22161c4384ff939f6478
+      size: 319902
+    outs:
+    - path: artifacts/data/
+      hash: md5
+      md5: c7f72b65316033fb53fa4fdb375aeb8e.dir
+      size: 16552
+      nfiles: 1
+    - path: artifacts/preprocessing/
+      hash: md5
+      md5: 7eadd937415daba7f49321f7398cc32d.dir
+      size: 749
+      nfiles: 2
+  train:
+    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/retrain.py &&
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
+      setup/snapshot_train.py
+    deps:
+    - path: config/pipeline.yaml
+      hash: md5
+      md5: 3581d8c62127df4f1d7793426ee2fdfd
+      size: 3373
+    - path: jobs/retrain_pipeline/pipeline.py
+      hash: md5
+      md5: 3dc911ccc4adbe10a63f0b517343ba62
+      size: 11690
+    - path: jobs/retrain_tools/lstm_model.py
+      hash: md5
+      md5: 352f9b398bb45948ac057b217be478af
+      size: 15277
+    - path: setup/snapshot_train.py
+      hash: md5
+      md5: 10d1e2ce24fec12e160c9f9894de9a40
+      size: 2842
+    - path: src/retrain.py
+      hash: md5
+      md5: 9cc534e0391045cfda4c085e56d700bc
+      size: 2641
+    outs:
+    - path: artifacts/models/checkpoint.pt
+      hash: md5
+      md5: 682c2b8f4e3603dd632b7456f4c16c10
+      size: 848885
+    - path: artifacts/models/training_summary.json
+      hash: md5
+      md5: 053854e73201795275db4c8d60ae4f23
+      size: 282
+  promote:
+    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
+      setup/promote_champion.py
+    deps:
+    - path: artifacts/models/training_summary.json
+      hash: md5
+      md5: 053854e73201795275db4c8d60ae4f23
+      size: 282
+    - path: setup/promote_champion.py
+      hash: md5
+      md5: d8f6f52b7cad88efe0bff67ef2503892
+      size: 1931
+    outs:
+    - path: artifacts/models/promotion.json
+      hash: md5
+      md5: c9487e6816e0c0469c58138efa7413c8
+      size: 102
+  evaluate:
+    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/evaluate.py 
+      --dry-run && MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
+      setup/gen_perf_report.py
+    deps:
+    - path: artifacts/models/promotion.json
+      hash: md5
+      md5: c9487e6816e0c0469c58138efa7413c8
+      size: 102
+    - path: setup/gen_perf_report.py
+      hash: md5
+      md5: e30de41bd2c84d84f0dc111086cebac9
+      size: 1829
+    - path: src/evaluate.py
+      hash: md5
+      md5: 5941d604712f5647e7dc10ddd36b7325
+      size: 3834
+    outs:
+    - path: artifacts/metrics/evaluation_metrics.json
+      hash: md5
+      md5: a5fc826ad1d73524f9c7da5919726098
+      size: 190
+    - path: reports/performance_report.html
+      hash: md5
+      md5: 6802d08acc7a9baf325ed6bf262c9313
+      size: 189
+  monitor:
+    cmd: python src/monitor.py; code=$?; if [ $code -eq 0 ] || [ $code -eq 2 ]; 
+      then exit 0; else exit $code; fi
+    deps:
+    - path: data/new_data.csv
+      hash: md5
+      md5: 5f77510632f8ef0c5190d63a66ef94f2
+      size: 16552
+    - path: src/monitor.py
+      hash: md5
+      md5: 63a677d8d8c6f4c49a8f79c5d78eed57
+      size: 5349
+    - path: train/train.csv
+      hash: md5
+      md5: fb0d7fde56bd22161c4384ff939f6478
+      size: 319902
+    outs:
+    - path: artifacts/metrics/monitoring_metrics.json
+      hash: md5
+      md5: 1783b610d3a8e457f9d02c5042c9d570
+      size: 76
+    - path: reports/drift_report.json
+      hash: md5
+      md5: cc76a5249a2de1830a0137ad5796fde5
+      size: 2945
