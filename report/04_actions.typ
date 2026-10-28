@@ -48,3 +48,17 @@ including on cold runners:
 The curve is textbook healthy: train and validation losses fall together, the
 best checkpoint (not the last) is kept, and early stopping fires after 10 flat
 epochs — no overfitting, no wasted compute.
+
+#heading(level: 2)[Registry evidence]
+The MLflow UI (`mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`, viewed
+at `localhost:5050`) shows the same history from the inside: six runs in the
+`pv-lstm-fleet` experiment, and the registry holding both aliases — `@candidate`
+and `@champion` — on the winning version:
+#figure(
+  image("../figs/fig_mlflow_runs.png", width: 90%),
+  caption: [Experiment `pv-lstm-fleet`: six runs, one per challenger (v1–v6).],
+) <fig-mlruns>
+#figure(
+  image("../figs/fig_mlflow_registry.png", width: 90%),
+  caption: [Model registry: `@candidate` + `@champion` aliases on the winning version; the promotion gate in visible form.],
+) <fig-mlreg>
