@@ -1,0 +1,12 @@
+# Vendor code (explore team, pv-forecasting@b5a99bd) — local only, xem VENDOR.md
+src/
+jobs/
+pvdata/
+config/pipeline.yaml
+requirements.txt
+
+# Secrets & local
+.env
+.dvc/config.local
+__pycache__/
+*.pyc
