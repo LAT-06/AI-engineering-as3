@@ -29,8 +29,21 @@ reference; the live entry points are `src/*.py`.
 - Chat log: Discord, bphuong 21:34–21:36 (`"Thoải mái m"`, `"làm theo đề là đc"`, `"cứ coi như m đang làm 1 bài bth"`).
 
 ## Changed by basic slice
-(none yet — every fix will be logged here with reason)
+1. `src/*.py`: `repo_root = ...parent` → `...parents[1]` (entry points live in
+   `src/`, not repo root). Without this, `jobs`/`pvdata` imports fail.
+2. `jobs/drift_pipeline/pipeline.py`: new `DRIFT_REFERENCE_DATE` env (YYYY-MM-DD)
+   to anchor windows to the sample range (demo data ends 2024-06-30, not today).
+   Unset = today UTC (explore behaviour unchanged).
+
+## Verified runs (own Supabase, 2024-01..06 sample)
+- `retrain --dry-run` + full run w/ `sqlite` MLflow: TEST_RMSE=0.10555, R²=0.80,
+  v1 registered as `candidate`, manually promoted to `champion` (bootstrap).
+- `drift --dry-run` (`DRIFT_REFERENCE_DATE=2024-07-01`): DRIFT (15/20 feats).
+- `evaluate --dry-run`: RETRAIN NEEDED (live RMSE 0.15772, +49% vs baseline).
+- `monitor.py`: DRIFT DETECTED, exit 2.
 
 ## Basic-slice new files (Thịnh)
 (none yet — `src/monitor.py`, `dvc.yaml`, `.github/workflows/retrain-on-push.yml`,
 `train/`, `test/`, `data/`, `artifacts/`, `reports/` land in later steps)
+
+Patches versioned at `setup/vendor-patches/`; reproduce via `bash setup/fetch-vendor.sh`.
