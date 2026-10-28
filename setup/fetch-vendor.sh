@@ -5,6 +5,9 @@ set -euo pipefail
 DEST="${1:-$(dirname "$0")/..}"
 PIN="b5a99bdca927b07d06a8d61863c8c48b551ba867"
 SRC="https://github.com/COS40007-2026-MinhHA10-Fall26/pv-forecasting.git"
+if [ -n "${VENDOR_REPO_TOKEN:-}" ]; then
+  SRC="https://x-access-token:${VENDOR_REPO_TOKEN}@github.com/COS40007-2026-MinhHA10-Fall26/pv-forecasting.git"
+fi
 TMP="$(mktemp -d)"
 git clone -q --depth 1 "$SRC" "$TMP" 2>/dev/null || git clone -q "$SRC" "$TMP"
 (cd "$TMP" && git fetch -q origin "$PIN" && git checkout -q "$PIN")

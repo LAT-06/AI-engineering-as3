@@ -68,6 +68,8 @@ jobs:
           restore-keys: mlruns-
 
       - name: Fetch vendor code (pinned + patched)
+        env:
+          VENDOR_REPO_TOKEN: ${{ secrets.VENDOR_REPO_TOKEN }}
         run: bash setup/fetch-vendor.sh .
 
       - name: Install dependencies (CPU torch)
