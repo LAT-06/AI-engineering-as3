@@ -10,6 +10,7 @@ on:
       - "train/**"
       - "test/**"
       - "src/**"
+      - "setup/**"
       - "dvc.yaml"
       - "config/pipeline.yaml"
       - ".github/workflows/retrain-on-push.yml"
