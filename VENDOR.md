@@ -1,49 +1,50 @@
-# VENDOR.md — provenance of reused code
+# PROVENANCE — reused group code + own work
 
-All pipeline logic below was built by the explore sub-team (Toan & Khanh) in
-`pv-forecasting`. The basic slice (Thịnh) reuses it unchanged and adds only
-Studio-9 integration around it (see `plan.md` in parent folder).
+Studio-9 pipeline logic was built by the explore sub-team (Toàn & Khanh) in
+`COS40007-2026-MinhHA10-Fall26/pv-forecasting`
+(pin `b5a99bdca927b07d06a8d61863c8c48b551ba867`).
+The basic slice (Thịnh) commits a **minimal running subset** below and adds
+only Studio-9 integration around it.
 
-- Source repo: `COS40007-2026-MinhHA10-Fall26/pv-forecasting`
-- Source commit: `b5a99bdca927b07d06a8d61863c8c48b551ba867`
-  (`feat(task2): add GitHub Actions training pipeline (model.py + train.yml)`)
+## Reused (explore, committed here)
+| This repo | Origin |
+|---|---|
+| `src/retrain.py` | `retrain.py` |
+| `src/evaluate.py` | `evaluate.py` |
+| `jobs/retrain_pipeline/`, `jobs/retrain_tools/` | same |
+| `jobs/evaluate_pipeline/`, `jobs/evaluate_tools/` | same |
+| `jobs/common/`, `jobs/__init__.py` | same |
+| `jobs/ingest_tools/{__init__,supabase_storage}.py` | same (CSV download used by retrain) |
+| `config/pipeline.yaml` | same |
+| `requirements.txt` | same (CI dependency list) |
 
-## Copied unchanged
-| This repo | Origin | Built by |
-|---|---|---|
-| `src/ingest.py` | `ingest.py` | explore |
-| `src/retrain.py` | `retrain.py` | explore |
-| `src/evaluate.py` | `evaluate.py` | explore |
-| `src/drift.py` | `drift.py` | explore |
-| `jobs/` (whole tree, incl. `jobs/*.py` duplicates) | `jobs/` | explore |
-| `pvdata/` | `pvdata/` | explore |
-| `config/pipeline.yaml` | `config/pipeline.yaml` | explore |
-| `requirements.txt` | `requirements.txt` | explore |
-
-`jobs/*.py` top-level duplicates (`jobs/ingest.py`, …) are kept as-is for
-reference; the live entry points are `src/*.py`.
+## Pruned 2026-10-28 (verified unused by import trace of all 3 entries)
+Dropped: whole `pvdata/` (0 imports), `jobs/ingest_pipeline/`,
+`jobs/drift_pipeline/` + `jobs/drift_tools/` (drift entry unused — same
+KS≥0.40/PSI>0.20 rule re-implemented in own `src/monitor.py`),
+`jobs/ingest_tools/{bootstrap,dvc_helpers,monthly_export,quality}.py`,
+`jobs/*.py` root shims, `src/{drift,ingest}.py`.
+(CI installs `requirements.txt`; see workflow).
 
 ## Consent (quyền reuse)
-- Chủ code explore (bphuong) đồng ý reuse toàn bộ: 4 script + `jobs/ingest*`, `jobs/retrain*`, `jobs/evaluate*`, `jobs/drift*`; setup (DVC/workflow/config) tự làm riêng.
-- Điều kiện duy nhất: trong report viết khác phần explore Ass2 một chút (4 jobs gốc config theo hướng exploration Ass2) — cơ bản: nhấn mạnh pipeline/automation/DVC theo đề Studio 9, không trình bày như exploration.
-- Chat log: Discord, bphuong 21:34–21:36 (`"Thoải mái m"`, `"làm theo đề là đc"`, `"cứ coi như m đang làm 1 bài bth"`).
+- Chủ code explore (bphuong) đồng ý reuse: `"Thoải mái m"`, `"làm theo đề là đc"`,
+  `"cứ coi như m đang làm 1 bài bth"` (Discord 21:34–21:36).
+- Điều kiện duy nhất: report viết khác phần explore Ass2 — nhấn mạnh
+  pipeline/automation/DVC theo đề Studio 9, không trình bày như exploration.
 
-## Changed by basic slice
-1. `src/*.py`: `repo_root = ...parent` → `...parents[1]` (entry points live in
-   `src/`, not repo root). Without this, `jobs`/`pvdata` imports fail.
-2. `jobs/drift_pipeline/pipeline.py`: new `DRIFT_REFERENCE_DATE` env (YYYY-MM-DD)
-   to anchor windows to the sample range (demo data ends 2024-06-30, not today).
-   Unset = today UTC (explore behaviour unchanged).
+## Adapted by basic slice (2 changes, applied in place)
+1. `src/retrain.py`, `src/evaluate.py`: `repo_root = ...parent` →
+   `...parents[1]` (entry points live in `src/`, not repo root).
+2. (reverted with drift stack) `DRIFT_REFERENCE_DATE` no longer needed.
 
 ## Verified runs (own Supabase, 2024-01..06 sample)
-- `retrain --dry-run` + full run w/ `sqlite` MLflow: TEST_RMSE=0.10555, R²=0.80,
-  v1 registered as `candidate`, manually promoted to `champion` (bootstrap).
-- `drift --dry-run` (`DRIFT_REFERENCE_DATE=2024-07-01`): DRIFT (15/20 feats).
-- `evaluate --dry-run`: RETRAIN NEEDED (live RMSE 0.15772, +49% vs baseline).
-- `monitor.py`: DRIFT DETECTED, exit 2.
+- Full retrain w/ sqlite MLflow: TEST_RMSE≈0.09–0.10, R²≈0.80;
+  versions registered `candidate`, human gate promotes `champion`.
+- `evaluate`: compares live RMSE vs champion (×1.15 threshold).
+- `src/monitor.py`: DRIFT DETECTED, exit 2 (score 0.48, psi 1.23).
+- `dvc repro`: all 5 stages green; `dvc push` → own S3.
 
 ## Basic-slice new files (Thịnh)
-(none yet — `src/monitor.py`, `dvc.yaml`, `.github/workflows/retrain-on-push.yml`,
-`train/`, `test/`, `data/`, `artifacts/`, `reports/` land in later steps)
-
-Patches versioned at `setup/vendor-patches/`; reproduce via `bash setup/fetch-vendor.sh`.
+`src/{monitor,preprocess_new_data}.py`, `setup/{promote_champion,snapshot_train,gen_perf_report}.py`,
+`dvc.yaml`, `.github/workflows/retrain-on-push.yml`,
+`train/`, `test/`, `data/`.

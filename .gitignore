@@ -1,12 +1,5 @@
-# Vendor code (explore team, pv-forecasting@b5a99bd) — local only, xem VENDOR.md
-src/drift.py
-src/evaluate.py
-src/ingest.py
-src/retrain.py
-jobs/
-pvdata/
-config/pipeline.yaml
-requirements.txt
+# Group-shared code (pv-forecasting@b5a99bd, minimal subset) — xem VENDOR.md
+# (pruned 2026-10-28: drop pvdata/, ingest+drift stacks, unused tools)
 
 # Secrets & local
 .env
