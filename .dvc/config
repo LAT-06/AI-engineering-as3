@@ -1,0 +1,6 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = s3://processed_data/dvc
+    endpointurl = https://cbhvqecnwbuhpwkgfkxc.storage.supabase.co/storage/v1/s3
+    access_key_id = b101b76c2d0f7a15b97fd506b30304fa
