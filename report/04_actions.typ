@@ -36,9 +36,13 @@ and still requires `APPROVE=1` for every *replacement*. CI has been green since,
 including on cold runners:
 
 #figure(
-  image("../figs/fig_ev_ci.png", width: 90%),
-  caption: [GitHub Actions runs of `Retrain on Push (Studio 9)` — push-triggered, green after the bootstrap fix.],
+  image("../figs/fig_gh_run.png", width: 90%),
+  caption: [Latest push-triggered run of `Retrain on Push (Studio 9)` — Success on `main` (8bb29c2), 2m46s, reports artefact published. Address bar shows group repo `LAT-06/AI-engineering-as3`.],
 ) <fig-ci>
+#figure(
+  image("../figs/fig_gh_repo.png", width: 90%),
+  caption: [Group repo home: 9 PM issues (basic/explore labels) double as the board backlog.],
+) <fig-ghrepo>
 
 #heading(level: 2)[Training evidence]
 #figure(
