@@ -118,10 +118,13 @@ def main(argv=None) -> int:
     out_dir = REPO_ROOT / "reports"
     met_dir = REPO_ROOT / "artifacts" / "metrics"
     log_dir = REPO_ROOT / "monitoring" / "logs"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    met_dir.mkdir(parents=True, exist_ok=True)
-    log_dir.mkdir(parents=True, exist_ok=True)
+    mon_rep = REPO_ROOT / "monitoring" / "reports"
+    alert_dir = REPO_ROOT / "monitoring" / "alerts"
+    logs_dir = REPO_ROOT / "logs"
+    for d_ in (out_dir, met_dir, log_dir, mon_rep, alert_dir, logs_dir):
+        d_.mkdir(parents=True, exist_ok=True)
     (out_dir / "drift_report.json").write_text(json.dumps(report, indent=2))
+    (mon_rep / "drift_report.json").write_text(json.dumps(report, indent=2))
     (met_dir / "monitoring_metrics.json").write_text(json.dumps({
         "drift_score": report["ks"]["drift_score"],
         "target_psi": report["psi"]["value"],
@@ -129,6 +132,19 @@ def main(argv=None) -> int:
     }, indent=2))
     with open(log_dir / "monitoring.log", "a") as fh:
         fh.write(f"drift={drift} score={drift_score:.2f} psi={psi_val}\n")
+    with open(logs_dir / "drift_detection.log", "a") as fh:
+        fh.write(f"drift={drift} score={drift_score:.2f} psi={psi_val} "
+                 f"ref={len(ref)} cur={len(cur)}\n")
+    if drift:
+        import datetime
+        stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d_%H%M%S")
+        (alert_dir / f"alert_{stamp}.json").write_text(json.dumps({
+            "timestamp_utc": stamp, "severity": "high",
+            "rule": "KS>=0.40 OR PSI>0.20",
+            "drift_score": report["ks"]["drift_score"],
+            "target_psi": report["psi"]["value"],
+            "action": "trigger retraining pipeline",
+        }, indent=2))
 
     status = "DRIFT DETECTED" if drift else "NO SIGNIFICANT DRIFT"
     print(f"{status}  (score={drift_score:.2f}, psi={psi_val})")

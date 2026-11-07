@@ -9,8 +9,8 @@ stages:
       size: 16552
     - path: src/preprocess_new_data.py
       hash: md5
-      md5: b41aa5f3c959cf7447c39d1c126f880e
-      size: 1627
+      md5: db84d6f31550958c9edd442d78ab3e91
+      size: 2018
     - path: train/train.csv
       hash: md5
       md5: fb0d7fde56bd22161c4384ff939f6478
@@ -21,6 +21,10 @@ stages:
       md5: c7f72b65316033fb53fa4fdb375aeb8e.dir
       size: 16552
       nfiles: 1
+    - path: artifacts/metadata/data_version.txt
+      hash: md5
+      md5: 4c0598da8baea7ae6097d01cbb6d69d6
+      size: 81
     - path: artifacts/preprocessing/
       hash: md5
       md5: 7eadd937415daba7f49321f7398cc32d.dir
@@ -45,38 +49,46 @@ stages:
       size: 15277
     - path: setup/snapshot_train.py
       hash: md5
-      md5: 10d1e2ce24fec12e160c9f9894de9a40
-      size: 2842
+      md5: 7a65203f3715b8d43e064fb9423b3afe
+      size: 3152
     - path: src/retrain.py
       hash: md5
       md5: 9cc534e0391045cfda4c085e56d700bc
       size: 2641
     outs:
+    - path: artifacts/metadata/last_retrain.txt
+      hash: md5
+      md5: a59bc153bcbe338a8e1f207868dbe134
+      size: 33
+    - path: artifacts/metadata/model_version.txt
+      hash: md5
+      md5: 35aaa6aa7a78bf4a4a7e67ea916178d5
+      size: 17
     - path: artifacts/models/checkpoint.pt
       hash: md5
-      md5: 682c2b8f4e3603dd632b7456f4c16c10
+      md5: 6802a37190d813658a50e78dc0e2c9d0
       size: 848885
     - path: artifacts/models/training_summary.json
       hash: md5
-      md5: 053854e73201795275db4c8d60ae4f23
-      size: 282
+      md5: 60b1a9282e31206b46504a94f8607648
+      size: 286
   promote:
     cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
       setup/promote_champion.py
     deps:
     - path: artifacts/models/training_summary.json
       hash: md5
-      md5: 053854e73201795275db4c8d60ae4f23
-      size: 282
+      md5: 60b1a9282e31206b46504a94f8607648
+      size: 286
     - path: setup/promote_champion.py
       hash: md5
-      md5: d8f6f52b7cad88efe0bff67ef2503892
-      size: 1931
+      md5: f0ab259b135c0f63a572c0e2c8866e2a
+      size: 2140
     outs:
     - path: artifacts/models/promotion.json
       hash: md5
-      md5: c9487e6816e0c0469c58138efa7413c8
-      size: 102
+      md5: 3c95d1450f13c92dced798ad2cbd3d93
+      size: 125
   evaluate:
     cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/evaluate.py 
       --dry-run && MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
@@ -84,12 +96,12 @@ stages:
     deps:
     - path: artifacts/models/promotion.json
       hash: md5
-      md5: c9487e6816e0c0469c58138efa7413c8
-      size: 102
+      md5: 3c95d1450f13c92dced798ad2cbd3d93
+      size: 125
     - path: setup/gen_perf_report.py
       hash: md5
-      md5: e30de41bd2c84d84f0dc111086cebac9
-      size: 1829
+      md5: e643b544913ecf2d39cbdc5001f3b7fc
+      size: 3302
     - path: src/evaluate.py
       hash: md5
       md5: 5941d604712f5647e7dc10ddd36b7325
@@ -99,6 +111,10 @@ stages:
       hash: md5
       md5: a5fc826ad1d73524f9c7da5919726098
       size: 190
+    - path: reports/monitoring_dashboard.html
+      hash: md5
+      md5: 04c2688240847b22b6a5bbdf3e10c334
+      size: 671
     - path: reports/performance_report.html
       hash: md5
       md5: 6802d08acc7a9baf325ed6bf262c9313
@@ -113,8 +129,8 @@ stages:
       size: 16552
     - path: src/monitor.py
       hash: md5
-      md5: 63a677d8d8c6f4c49a8f79c5d78eed57
-      size: 5349
+      md5: a2ab68c1a1b8b63ea1083929c1e4f292
+      size: 6201
     - path: train/train.csv
       hash: md5
       md5: fb0d7fde56bd22161c4384ff939f6478
@@ -124,6 +140,19 @@ stages:
       hash: md5
       md5: 1783b610d3a8e457f9d02c5042c9d570
       size: 76
+    - path: logs/drift_detection.log
+      hash: md5
+      md5: 9dbd0cb8284b5ff306ce8b3e8427b4b9
+      size: 61
+    - path: monitoring/alerts/
+      hash: md5
+      md5: 68f24dcaef2cbc1ae46abe47d0dfe226.dir
+      size: 187
+      nfiles: 1
+    - path: monitoring/reports/drift_report.json
+      hash: md5
+      md5: cc76a5249a2de1830a0137ad5796fde5
+      size: 2945
     - path: reports/drift_report.json
       hash: md5
       md5: cc76a5249a2de1830a0137ad5796fde5

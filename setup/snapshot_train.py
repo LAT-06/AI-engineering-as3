@@ -73,6 +73,12 @@ def main() -> int:
                "run_id": latest.run_id, "metrics": metrics,
                "aliases": list(latest.aliases)}
     (out / "training_summary.json").write_text(json.dumps(summary, indent=2))
+    import datetime
+    meta = REPO_ROOT / "artifacts" / "metadata"
+    meta.mkdir(parents=True, exist_ok=True)
+    (meta / "model_version.txt").write_text(f"{MODEL_NAME} v{latest.version}\n")
+    (meta / "last_retrain.txt").write_text(
+        datetime.datetime.now(datetime.timezone.utc).isoformat() + "\n")
     print(f"train snapshot OK — v{latest.version} rmse={metrics['test_rmse']}")
     return 0
 

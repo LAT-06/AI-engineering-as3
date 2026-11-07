@@ -43,6 +43,14 @@ def main() -> int:
     (prep / "row_counts.json").write_text(json.dumps(
         {"train_rows": len(train), "new_rows": len(new)}, indent=2))
     new.to_csv(data / "validated_new_data.csv", index=False)
+    import datetime
+    import hashlib
+    digest = hashlib.sha256(new.to_csv(index=False).encode()).hexdigest()[:12]
+    meta = REPO_ROOT / "artifacts" / "metadata"
+    meta.mkdir(parents=True, exist_ok=True)
+    (meta / "data_version.txt").write_text(
+        f"new_data.csv rows={len(new)} sha={digest} "
+        f"validated={datetime.datetime.now(datetime.timezone.utc).isoformat()}\n")
     print(f"preprocess OK — train={len(train)} new={len(new)} "
           f"cols={len(train.columns)}")
     return 0

@@ -48,6 +48,30 @@ def main() -> int:
         f"<p>Champion test RMSE: {baseline}</p>"
         f"<p>Eval drift threshold ratio: {summary['eval_threshold_ratio']}</p>"
         "</body></html>")
+    drift, promo = {}, {}
+    for p_, key in ((REPO_ROOT / "reports" / "drift_report.json", "drift"),
+                     (REPO_ROOT / "artifacts" / "models" / "promotion.json", "promo")):
+        try:
+            (drift if key == "drift" else promo).update(json.loads(p_.read_text()))
+        except Exception:
+            pass
+    rows = ""
+    if drift:
+        rows += (f"<tr><td>Drift detected</td><td>{drift.get('drift_detected')}</td></tr>"
+                 f"<tr><td>KS drift score (thr 0.40)</td><td>{drift.get('ks', {}).get('drift_score')}</td></tr>"
+                 f"<tr><td>Target PSI (thr 0.20)</td><td>{drift.get('psi', {}).get('value')}</td></tr>")
+    if promo:
+        rows += (f"<tr><td>Promotion action</td><td>{promo.get('action')}</td></tr>"
+                 f"<tr><td>Champion</td><td>{promo.get('champion_version')}</td></tr>")
+    rows += (f"<tr><td>Champion test RMSE</td><td>{baseline}</td></tr>"
+             f"<tr><td>Eval threshold ratio</td><td>{summary['eval_threshold_ratio']}</td></tr>")
+    (rep / "monitoring_dashboard.html").write_text(
+        "<html><head><title>Monitoring dashboard</title></head><body>"
+        f"<h1>Monitoring dashboard — {MODEL_NAME}</h1>"
+        "<table border='1' cellpadding='6'>"
+        "<tr><th>Signal</th><th>Value</th></tr>" + rows + "</table>"
+        "<p>Sources: reports/drift_report.json, artifacts/models/promotion.json, "
+        "artifacts/metrics/evaluation_metrics.json</p></body></html>")
     print(f"perf report OK — champion v{mv.version} rmse={baseline}")
     return 0
 

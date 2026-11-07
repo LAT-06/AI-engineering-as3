@@ -10,6 +10,7 @@ stages:
     outs:
       - artifacts/preprocessing/
       - artifacts/data/
+      - artifacts/metadata/data_version.txt
   train:
     cmd: >-
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
@@ -25,6 +26,8 @@ stages:
     outs:
       - artifacts/models/checkpoint.pt
       - artifacts/models/training_summary.json
+      - artifacts/metadata/model_version.txt
+      - artifacts/metadata/last_retrain.txt
   promote:
     cmd: >-
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
@@ -46,6 +49,7 @@ stages:
       - artifacts/models/promotion.json
     outs:
       - reports/performance_report.html
+      - reports/monitoring_dashboard.html
       - artifacts/metrics/evaluation_metrics.json
   monitor:
     cmd: >-
@@ -57,4 +61,7 @@ stages:
       - src/monitor.py
     outs:
       - reports/drift_report.json
+      - monitoring/reports/drift_report.json
+      - monitoring/alerts/
+      - logs/drift_detection.log
       - artifacts/metrics/monitoring_metrics.json
