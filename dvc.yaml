@@ -14,7 +14,7 @@ stages:
   train:
     cmd: >-
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
-      python src/retrain.py 2>&1 | tee logs/training.log &&
+      mkdir -p logs && python src/retrain.py 2>&1 | tee logs/training.log &&
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
       python setup/snapshot_train.py
     deps:
