@@ -1,0 +1,7 @@
+{
+  "model": "pv-lstm-fleet",
+  "latest_version": "9",
+  "approved": false,
+  "bootstrap": false,
+  "champion_version": "6"
+}
