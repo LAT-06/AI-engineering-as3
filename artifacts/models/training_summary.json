@@ -1,0 +1,12 @@
+{
+  "model": "pv-lstm-fleet",
+  "latest_version": "9",
+  "run_id": "8fa84eb79bc544e0ac3782880326dd26",
+  "metrics": {
+    "test_rmse": 0.09396665128551479,
+    "test_mae": 0.07531503762492206,
+    "test_r2": 0.8445498813479129,
+    "val_rmse": 0.07727078432070497
+  },
+  "aliases": []
+}

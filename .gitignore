@@ -9,8 +9,9 @@ __pycache__/
 
 mlruns/
 
-# DVC pipeline outputs (versioned in S3 remote, see dvc.lock)
-/artifacts
-/reports
-/monitoring
-/logs
+# DVC pipeline outputs are ALSO committed to git (team wants them visible on GitHub).
+# DVC remote (S3) remains the versioned store; dvc.lock tracks hashes.
+# /artifacts
+# /reports
+# /monitoring
+# /logs

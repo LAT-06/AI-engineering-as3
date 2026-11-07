@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "20261107_144128",
+  "severity": "high",
+  "rule": "KS>=0.40 OR PSI>0.20",
+  "drift_score": 0.6957,
+  "target_psi": 0.2716,
+  "action": "trigger retraining pipeline"
+}

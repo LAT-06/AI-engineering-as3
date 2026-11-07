@@ -1,0 +1,51 @@
+2026-11-07 21:40:35 [INFO] jobs.retrain_pipeline.pipeline: === [Step 1/7] Downloading monthly CSVs from Supabase ===
+2026-11-07 21:40:35 [INFO] jobs.retrain_tools.data_loader: Listing files under bucket prefix 'processed/' …
+2026-11-07 21:40:37 [INFO] httpx: HTTP Request: POST https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/list/processed_data "HTTP/2 200 OK"
+2026-11-07 21:40:37 [INFO] jobs.retrain_tools.data_loader: Found 6 monthly CSV files (2024-01 → 2024-06)
+2026-11-07 21:40:37 [INFO] httpx: HTTP Request: GET https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/processed/2024-01.csv "HTTP/2 200 OK"
+2026-11-07 21:40:38 [INFO] httpx: HTTP Request: GET https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/processed/2024-02.csv "HTTP/2 200 OK"
+2026-11-07 21:40:39 [INFO] httpx: HTTP Request: GET https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/processed/2024-03.csv "HTTP/2 200 OK"
+2026-11-07 21:40:39 [INFO] httpx: HTTP Request: GET https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/processed/2024-04.csv "HTTP/2 200 OK"
+2026-11-07 21:40:40 [INFO] httpx: HTTP Request: GET https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/processed/2024-05.csv "HTTP/2 200 OK"
+2026-11-07 21:40:41 [INFO] httpx: HTTP Request: GET https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/processed/2024-06.csv "HTTP/2 200 OK"
+2026-11-07 21:40:41 [INFO] jobs.retrain_tools.data_loader: Concatenating 6 monthly DataFrames …
+2026-11-07 21:40:41 [INFO] jobs.retrain_tools.data_loader: Raw dataset: 55310 rows × 40 cols
+2026-11-07 21:40:41 [INFO] jobs.retrain_tools.data_loader: Row filter: kept 55310 / 55310 rows (removed 0 nighttime/invalid)
+2026-11-07 21:40:41 [INFO] jobs.retrain_pipeline.pipeline: Loaded dataset: 55310 rows × 40 cols  |  arrays: 31
+2026-11-07 21:40:41 [INFO] jobs.retrain_pipeline.pipeline: === [Step 2/7] Computing chronological 70/15/15 split ===
+/home/lat/Documents/Swinburne/cos40007 (AI engineering)/as3-ai engineering/AI-engineering-as3/jobs/retrain_tools/splitter.py:67: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  month_keys = ts.dt.to_period("M").astype(str)
+2026-11-07 21:40:41 [INFO] jobs.retrain_tools.splitter: Split: Train 2024-01→2024-04 (4 mo, 36027 rows) | Val 2024-05→2024-05 (1 mo, 10013 rows) | Test 2024-06→2024-06 (1 mo, 9270 rows)
+2026-11-07 21:40:41 [INFO] jobs.retrain_pipeline.pipeline: === [Step 3/7] Building window datasets and fitting preprocessor ===
+2026-11-07 21:40:42 [INFO] jobs.retrain_tools.lstm_model: Building training windows (window_size=6) …
+2026-11-07 21:40:44 [INFO] jobs.retrain_tools.lstm_model: Building validation windows …
+2026-11-07 21:40:44 [INFO] jobs.retrain_tools.lstm_model: Building test windows …
+2026-11-07 21:40:45 [INFO] jobs.retrain_tools.lstm_model: Windows: train=18479 | val=4681 | test=4620
+2026-11-07 21:40:45 [INFO] jobs.retrain_pipeline.pipeline: Windows: train=18479  val=4681  test=4620
+2026-11-07 21:40:45 [INFO] jobs.retrain_pipeline.pipeline: === [Step 4/7] Training LSTM model ===
+2026-11-07 21:40:46 [INFO] jobs.retrain_tools.lstm_model: Training device: cpu
+2026-11-07 21:40:48 [INFO] jobs.retrain_tools.lstm_model: Epoch   1/50  train_loss=0.03985  val_loss=0.00894  best=0.00894
+2026-11-07 21:40:53 [INFO] jobs.retrain_tools.lstm_model: Epoch   5/50  train_loss=0.01021  val_loss=0.00607  best=0.00606
+2026-11-07 21:41:00 [INFO] jobs.retrain_tools.lstm_model: Epoch  10/50  train_loss=0.00772  val_loss=0.00628  best=0.00597
+2026-11-07 21:41:06 [INFO] jobs.retrain_tools.lstm_model: Epoch  15/50  train_loss=0.00615  val_loss=0.00638  best=0.00597
+2026-11-07 21:41:08 [INFO] jobs.retrain_tools.lstm_model: Early stopping at epoch 16 (no improvement for 10 epochs)
+2026-11-07 21:41:08 [INFO] jobs.retrain_tools.lstm_model: Training complete — best epoch: 6, best val_loss: 0.00597
+2026-11-07 21:41:08 [INFO] jobs.retrain_pipeline.pipeline: === [Step 5/7] Evaluating on test split ===
+2026-11-07 21:41:08 [INFO] jobs.retrain_tools.evaluation: VAL_RMSE=0.07727  MAE=0.05991  R²=0.8940  (n=4681)
+2026-11-07 21:41:08 [INFO] jobs.retrain_tools.evaluation: TEST_RMSE=0.09397  MAE=0.07532  R²=0.8445  (n=4620)
+2026-11-07 21:41:08 [INFO] jobs.retrain_pipeline.pipeline: Challenger test RMSE: 0.09397
+2026-11-07 21:41:08 [INFO] jobs.retrain_pipeline.pipeline: === [Step 6/7] Logging run to MLflow ===
+2026-11-07 21:41:08 [INFO] jobs.retrain_tools.lstm_model: Checkpoint saved: checkpoint.pt (0.85 MB)
+2026-11-07 21:41:09 [INFO] jobs.retrain_tools.mlflow_helpers: MLflow run logged: run_id=8fa84eb79bc544e0ac3782880326dd26  model_version=9
+2026-11-07 21:41:09 [INFO] jobs.retrain_pipeline.pipeline: MLflow run: run_id=8fa84eb79bc544e0ac3782880326dd26  model_version=9
+2026-11-07 21:41:09 [INFO] jobs.retrain_pipeline.pipeline: === [Step 7/7] Champion comparison & notification ===
+2026-11-07 21:41:09 [INFO] jobs.retrain_tools.mlflow_helpers: Champion: model version=6  run_id=419f4dcaef3b4f78884bef242e8f2da1  test_rmse=0.09454
+2026-11-07 21:41:09 [INFO] jobs.retrain_tools.mlflow_helpers: Champion: model version=6  run_id=419f4dcaef3b4f78884bef242e8f2da1  test_rmse=0.09454
+2026-11-07 21:41:09 [INFO] jobs.retrain_tools.mlflow_helpers: Challenger RMSE 0.09397 < Champion RMSE 0.09454 — assigning 'candidate'.
+2026-11-07 21:41:09 [INFO] jobs.retrain_tools.mlflow_helpers: Alias 'candidate' assigned to pv-lstm-fleet version 9
+2026-11-07 21:41:09 [INFO] jobs.retrain_pipeline.pipeline: Uploading model checkpoint to Supabase artifacts/ …
+2026-11-07 21:41:09 [INFO] jobs.retrain_tools.artifact_store: Uploading model artifact to bucket 'processed_data' / artifacts/8fa84eb79bc544e0ac3782880326dd26/checkpoint.pt (0.85 MB) …
+2026-11-07 21:41:11 [INFO] httpx: HTTP Request: POST https://cbhvqecnwbuhpwkgfkxc.supabase.co/storage/v1/object/processed_data/artifacts/8fa84eb79bc544e0ac3782880326dd26/checkpoint.pt "HTTP/2 200 OK"
+2026-11-07 21:41:11 [INFO] jobs.retrain_tools.artifact_store: ✅ Model artifact uploaded: artifacts/8fa84eb79bc544e0ac3782880326dd26/checkpoint.pt
+2026-11-07 21:41:11 [WARNING] jobs.retrain_tools.discord_notify: DISCORD_WEBHOOK_URL not set — skipping Discord notification.
+2026-11-07 21:41:11 [INFO] jobs.retrain_pipeline.pipeline: === Retrain pipeline complete ===
