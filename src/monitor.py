@@ -132,6 +132,8 @@ def main(argv=None) -> int:
     }, indent=2))
     with open(log_dir / "monitoring.log", "a") as fh:
         fh.write(f"drift={drift} score={drift_score:.2f} psi={psi_val}\n")
+    with open(logs_dir / "monitoring.log", "a") as fh:
+        fh.write(f"drift={drift} score={drift_score:.2f} psi={psi_val}\n")
     with open(logs_dir / "drift_detection.log", "a") as fh:
         fh.write(f"drift={drift} score={drift_score:.2f} psi={psi_val} "
                  f"ref={len(ref)} cur={len(cur)}\n")

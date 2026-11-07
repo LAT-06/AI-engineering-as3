@@ -2,11 +2,12 @@
 # and env sourced (SUPABASE_*, MLFLOW_TRACKING_URI, DRIFT_REFERENCE_DATE).
 stages:
   preprocess:
-    cmd: python src/preprocess_new_data.py
+    cmd: python src/preprocess_new_data.py && python setup/stage_arrays.py
     deps:
       - train/train.csv
       - data/new_data.csv
       - src/preprocess_new_data.py
+      - setup/stage_arrays.py
     outs:
       - artifacts/preprocessing/
       - artifacts/data/
@@ -28,6 +29,7 @@ stages:
       - artifacts/models/training_summary.json
       - artifacts/metadata/model_version.txt
       - artifacts/metadata/last_retrain.txt
+      - artifacts/metrics/training_history.json
       - logs/training.log
   promote:
     cmd: >-
@@ -66,4 +68,5 @@ stages:
       - monitoring/reports/drift_report.json
       - monitoring/alerts/
       - logs/drift_detection.log
+      - logs/monitoring.log
       - artifacts/metrics/monitoring_metrics.json

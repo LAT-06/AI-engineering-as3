@@ -79,6 +79,20 @@ def main() -> int:
     (meta / "model_version.txt").write_text(f"{MODEL_NAME} v{latest.version}\n")
     (meta / "last_retrain.txt").write_text(
         datetime.datetime.now(datetime.timezone.utc).isoformat() + "\n")
+    import re
+    hist = {"train_losses": [], "val_losses": [], "best_epoch": None,
+            "best_val_loss": metrics.get("val_rmse")}
+    tlog = REPO_ROOT / "logs" / "training.log"
+    if tlog.exists():
+        for line in tlog.read_text(errors="replace").splitlines():
+            m = re.search(r"Epoch\s+(\d+)/\d+.*train_loss=([0-9.]+).*val_loss=([0-9.]+)", line)
+            if m:
+                hist["train_losses"].append(float(m.group(2)))
+                hist["val_losses"].append(float(m.group(3)))
+    mdir = REPO_ROOT / "artifacts" / "metrics"
+    mdir.mkdir(parents=True, exist_ok=True)
+    (mdir / "training_history.json").write_text(json.dumps(hist, indent=2))
+    print(f"training history OK — {len(hist['train_losses'])} epochs")
     print(f"train snapshot OK — v{latest.version} rmse={metrics['test_rmse']}")
     return 0
 

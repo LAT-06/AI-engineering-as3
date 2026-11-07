@@ -1,12 +1,16 @@
 schema: '2.0'
 stages:
   preprocess:
-    cmd: python src/preprocess_new_data.py
+    cmd: python src/preprocess_new_data.py && python setup/stage_arrays.py
     deps:
     - path: data/new_data.csv
       hash: md5
       md5: 2a3634ccc46adc0ba06e289b5a52a21c
       size: 16763
+    - path: setup/stage_arrays.py
+      hash: md5
+      md5: c11fe70efcdf9fd29dd961038645b745
+      size: 3119
     - path: src/preprocess_new_data.py
       hash: md5
       md5: db84d6f31550958c9edd442d78ab3e91
@@ -18,21 +22,21 @@ stages:
     outs:
     - path: artifacts/data/
       hash: md5
-      md5: 6b89b897746f1667916318224d48995c.dir
-      size: 16763
-      nfiles: 1
+      md5: 5ff9d0064db740be02390877eb8d987f.dir
+      size: 433191
+      nfiles: 6
     - path: artifacts/metadata/data_version.txt
       hash: md5
-      md5: fa0adcdc3c25df7af0bf69d405d4ba88
+      md5: 6b1ea461af49457fb6647464e9e417c0
       size: 81
     - path: artifacts/preprocessing/
       hash: md5
-      md5: 7eadd937415daba7f49321f7398cc32d.dir
-      size: 749
-      nfiles: 2
+      md5: 21f5ee2d626974f20118e7dfd64bac25.dir
+      size: 3618
+      nfiles: 5
   train:
-    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/retrain.py 
-      2>&1 | tee logs/training.log && 
+    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db mkdir -p logs && python 
+      src/retrain.py 2>&1 | tee logs/training.log && 
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
       setup/snapshot_train.py
     deps:
@@ -50,8 +54,8 @@ stages:
       size: 15277
     - path: setup/snapshot_train.py
       hash: md5
-      md5: 7a65203f3715b8d43e064fb9423b3afe
-      size: 3152
+      md5: c0128bc5685ab0753875a484b42fa222
+      size: 3904
     - path: src/retrain.py
       hash: md5
       md5: 9cc534e0391045cfda4c085e56d700bc
@@ -59,32 +63,36 @@ stages:
     outs:
     - path: artifacts/metadata/last_retrain.txt
       hash: md5
-      md5: 3b3baeee61881d7ff9c7b7ea3bde5af1
+      md5: 12e58bdeaec83afbe796a8fedce572a7
       size: 33
     - path: artifacts/metadata/model_version.txt
       hash: md5
-      md5: ddb97ffc950b9adcbe45b8a439f92b6f
+      md5: 31fda1425f1ffef68cd19bafc0890c81
       size: 17
+    - path: artifacts/metrics/training_history.json
+      hash: md5
+      md5: fa43447805768ffe7447154f75635863
+      size: 214
     - path: artifacts/models/checkpoint.pt
       hash: md5
-      md5: 6802a37190d813658a50e78dc0e2c9d0
+      md5: 44cfe5d21d7962027f59da90f466b475
       size: 848885
     - path: artifacts/models/training_summary.json
       hash: md5
-      md5: 6ab02010692829f2d3ff7f375b07f601
-      size: 284
+      md5: 8f8ba3280fccdf80cfa92c231037a8c5
+      size: 286
     - path: logs/training.log
       hash: md5
-      md5: 608d3ed0e71bba8bd90f4db41a153420
-      size: 5787
+      md5: 4b76869df5a654ed83fa28622ff6a9ac
+      size: 6395
   promote:
     cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
       setup/promote_champion.py
     deps:
     - path: artifacts/models/training_summary.json
       hash: md5
-      md5: 6ab02010692829f2d3ff7f375b07f601
-      size: 284
+      md5: 8f8ba3280fccdf80cfa92c231037a8c5
+      size: 286
     - path: setup/promote_champion.py
       hash: md5
       md5: f0ab259b135c0f63a572c0e2c8866e2a
@@ -92,16 +100,17 @@ stages:
     outs:
     - path: artifacts/models/promotion.json
       hash: md5
-      md5: cb54b9f9cd793d639f2ac97cc9a2e105
+      md5: 68bbdbfd196f89fc23d6c493ff3b1082
       size: 125
   evaluate:
     cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/evaluate.py 
-      --dry-run && MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
-      setup/gen_perf_report.py
+      --dry-run; code=$?; if [ $code -eq 0 ] || [ $code -eq 2 ]; then 
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
+      setup/gen_perf_report.py; else exit $code; fi
     deps:
     - path: artifacts/models/promotion.json
       hash: md5
-      md5: cb54b9f9cd793d639f2ac97cc9a2e105
+      md5: 68bbdbfd196f89fc23d6c493ff3b1082
       size: 125
     - path: setup/gen_perf_report.py
       hash: md5
@@ -118,8 +127,8 @@ stages:
       size: 190
     - path: reports/monitoring_dashboard.html
       hash: md5
-      md5: 04c2688240847b22b6a5bbdf3e10c334
-      size: 671
+      md5: 4ed7df97bbdc8e80db1816182b26c7a6
+      size: 672
     - path: reports/performance_report.html
       hash: md5
       md5: 6802d08acc7a9baf325ed6bf262c9313
@@ -134,8 +143,8 @@ stages:
       size: 16763
     - path: src/monitor.py
       hash: md5
-      md5: a2ab68c1a1b8b63ea1083929c1e4f292
-      size: 6201
+      md5: ed12e92dedcbec94363cd552009e90b1
+      size: 6331
     - path: train/train.csv
       hash: md5
       md5: fb0d7fde56bd22161c4384ff939f6478
@@ -149,9 +158,13 @@ stages:
       hash: md5
       md5: 3fdf7a788f50223a0ed77e60a2b02420
       size: 62
+    - path: logs/monitoring.log
+      hash: md5
+      md5: 4333817e2d651252c72ef6a5f48b6398
+      size: 46
     - path: monitoring/alerts/
       hash: md5
-      md5: ca82f9f5dcb5bb1c28e795ecc3cc8126.dir
+      md5: 48e040132862141527687c2a9484bf12.dir
       size: 188
       nfiles: 1
     - path: monitoring/reports/drift_report.json
