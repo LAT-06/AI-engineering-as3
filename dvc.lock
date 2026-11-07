@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/new_data.csv
       hash: md5
-      md5: 5f77510632f8ef0c5190d63a66ef94f2
-      size: 16552
+      md5: 2a3634ccc46adc0ba06e289b5a52a21c
+      size: 16763
     - path: src/preprocess_new_data.py
       hash: md5
       md5: db84d6f31550958c9edd442d78ab3e91
@@ -18,12 +18,12 @@ stages:
     outs:
     - path: artifacts/data/
       hash: md5
-      md5: c7f72b65316033fb53fa4fdb375aeb8e.dir
-      size: 16552
+      md5: 6b89b897746f1667916318224d48995c.dir
+      size: 16763
       nfiles: 1
     - path: artifacts/metadata/data_version.txt
       hash: md5
-      md5: 4c0598da8baea7ae6097d01cbb6d69d6
+      md5: fa0adcdc3c25df7af0bf69d405d4ba88
       size: 81
     - path: artifacts/preprocessing/
       hash: md5
@@ -31,7 +31,8 @@ stages:
       size: 749
       nfiles: 2
   train:
-    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/retrain.py &&
+    cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/retrain.py 
+      2>&1 | tee logs/training.log && 
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
       setup/snapshot_train.py
     deps:
@@ -58,11 +59,11 @@ stages:
     outs:
     - path: artifacts/metadata/last_retrain.txt
       hash: md5
-      md5: a59bc153bcbe338a8e1f207868dbe134
+      md5: 3b3baeee61881d7ff9c7b7ea3bde5af1
       size: 33
     - path: artifacts/metadata/model_version.txt
       hash: md5
-      md5: 35aaa6aa7a78bf4a4a7e67ea916178d5
+      md5: ddb97ffc950b9adcbe45b8a439f92b6f
       size: 17
     - path: artifacts/models/checkpoint.pt
       hash: md5
@@ -70,16 +71,20 @@ stages:
       size: 848885
     - path: artifacts/models/training_summary.json
       hash: md5
-      md5: 60b1a9282e31206b46504a94f8607648
-      size: 286
+      md5: 6ab02010692829f2d3ff7f375b07f601
+      size: 284
+    - path: logs/training.log
+      hash: md5
+      md5: 608d3ed0e71bba8bd90f4db41a153420
+      size: 5787
   promote:
     cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python 
       setup/promote_champion.py
     deps:
     - path: artifacts/models/training_summary.json
       hash: md5
-      md5: 60b1a9282e31206b46504a94f8607648
-      size: 286
+      md5: 6ab02010692829f2d3ff7f375b07f601
+      size: 284
     - path: setup/promote_champion.py
       hash: md5
       md5: f0ab259b135c0f63a572c0e2c8866e2a
@@ -87,7 +92,7 @@ stages:
     outs:
     - path: artifacts/models/promotion.json
       hash: md5
-      md5: 3c95d1450f13c92dced798ad2cbd3d93
+      md5: cb54b9f9cd793d639f2ac97cc9a2e105
       size: 125
   evaluate:
     cmd: MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/evaluate.py 
@@ -96,7 +101,7 @@ stages:
     deps:
     - path: artifacts/models/promotion.json
       hash: md5
-      md5: 3c95d1450f13c92dced798ad2cbd3d93
+      md5: cb54b9f9cd793d639f2ac97cc9a2e105
       size: 125
     - path: setup/gen_perf_report.py
       hash: md5
@@ -125,8 +130,8 @@ stages:
     deps:
     - path: data/new_data.csv
       hash: md5
-      md5: 5f77510632f8ef0c5190d63a66ef94f2
-      size: 16552
+      md5: 2a3634ccc46adc0ba06e289b5a52a21c
+      size: 16763
     - path: src/monitor.py
       hash: md5
       md5: a2ab68c1a1b8b63ea1083929c1e4f292
@@ -138,22 +143,22 @@ stages:
     outs:
     - path: artifacts/metrics/monitoring_metrics.json
       hash: md5
-      md5: 1783b610d3a8e457f9d02c5042c9d570
-      size: 76
+      md5: c3f2b000816f0a29bc52d308868c385c
+      size: 77
     - path: logs/drift_detection.log
       hash: md5
-      md5: 9dbd0cb8284b5ff306ce8b3e8427b4b9
-      size: 61
+      md5: 3fdf7a788f50223a0ed77e60a2b02420
+      size: 62
     - path: monitoring/alerts/
       hash: md5
-      md5: 68f24dcaef2cbc1ae46abe47d0dfe226.dir
-      size: 187
+      md5: ca82f9f5dcb5bb1c28e795ecc3cc8126.dir
+      size: 188
       nfiles: 1
     - path: monitoring/reports/drift_report.json
       hash: md5
-      md5: cc76a5249a2de1830a0137ad5796fde5
-      size: 2945
+      md5: 2fa2ecce080dd0e7569e2ed84595cf2d
+      size: 2977
     - path: reports/drift_report.json
       hash: md5
-      md5: cc76a5249a2de1830a0137ad5796fde5
-      size: 2945
+      md5: 2fa2ecce080dd0e7569e2ed84595cf2d
+      size: 2977

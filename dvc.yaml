@@ -14,7 +14,7 @@ stages:
   train:
     cmd: >-
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
-      python src/retrain.py &&
+      python src/retrain.py 2>&1 | tee logs/training.log &&
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
       python setup/snapshot_train.py
     deps:
@@ -28,6 +28,7 @@ stages:
       - artifacts/models/training_summary.json
       - artifacts/metadata/model_version.txt
       - artifacts/metadata/last_retrain.txt
+      - logs/training.log
   promote:
     cmd: >-
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
