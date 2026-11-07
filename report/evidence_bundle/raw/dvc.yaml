@@ -1,0 +1,69 @@
+# Studio-9 basic pipeline. Run with vendor present (bash setup/fetch-vendor.sh)
+# and env sourced (SUPABASE_*, MLFLOW_TRACKING_URI, DRIFT_REFERENCE_DATE).
+stages:
+  preprocess:
+    cmd: python src/preprocess_new_data.py
+    deps:
+      - train/train.csv
+      - data/new_data.csv
+      - src/preprocess_new_data.py
+    outs:
+      - artifacts/preprocessing/
+      - artifacts/data/
+      - artifacts/metadata/data_version.txt
+  train:
+    cmd: >-
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
+      mkdir -p logs && python src/retrain.py 2>&1 | tee logs/training.log &&
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
+      python setup/snapshot_train.py
+    deps:
+      - src/retrain.py
+      - setup/snapshot_train.py
+      - jobs/retrain_pipeline/pipeline.py
+      - jobs/retrain_tools/lstm_model.py
+      - config/pipeline.yaml
+    outs:
+      - artifacts/models/checkpoint.pt
+      - artifacts/models/training_summary.json
+      - artifacts/metadata/model_version.txt
+      - artifacts/metadata/last_retrain.txt
+      - logs/training.log
+  promote:
+    cmd: >-
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
+      python setup/promote_champion.py
+    deps:
+      - artifacts/models/training_summary.json
+      - setup/promote_champion.py
+    outs:
+      - artifacts/models/promotion.json
+  evaluate:
+    cmd: >-
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
+      python src/evaluate.py --dry-run; code=$?;
+      if [ $code -eq 0 ] || [ $code -eq 2 ]; then
+      MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
+      python setup/gen_perf_report.py; else exit $code; fi
+    deps:
+      - src/evaluate.py
+      - setup/gen_perf_report.py
+      - artifacts/models/promotion.json
+    outs:
+      - reports/performance_report.html
+      - reports/monitoring_dashboard.html
+      - artifacts/metrics/evaluation_metrics.json
+  monitor:
+    cmd: >-
+      python src/monitor.py; code=$?;
+      if [ $code -eq 0 ] || [ $code -eq 2 ]; then exit 0; else exit $code; fi
+    deps:
+      - train/train.csv
+      - data/new_data.csv
+      - src/monitor.py
+    outs:
+      - reports/drift_report.json
+      - monitoring/reports/drift_report.json
+      - monitoring/alerts/
+      - logs/drift_detection.log
+      - artifacts/metrics/monitoring_metrics.json

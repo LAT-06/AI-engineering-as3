@@ -1,0 +1,7 @@
+{
+  "model": "pv-lstm-fleet",
+  "champion_version": "6",
+  "champion_run_id": "419f4dcaef3b4f78884bef242e8f2da1",
+  "champion_test_rmse": 0.0945368861141743,
+  "eval_threshold_ratio": 1.15
+}

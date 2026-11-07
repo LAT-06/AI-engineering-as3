@@ -1,0 +1,1240 @@
+pipeline	Set up job	﻿2026-11-07T12:07:59.1943409Z Current runner version: '2.338.2'
+pipeline	Set up job	2026-11-07T12:07:59.1971337Z ##[group]Runner Image Provisioner
+pipeline	Set up job	2026-11-07T12:07:59.1972427Z Hosted Compute Agent
+pipeline	Set up job	2026-11-07T12:07:59.1973141Z Version: 20261028.624
+pipeline	Set up job	2026-11-07T12:07:59.1973856Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+pipeline	Set up job	2026-11-07T12:07:59.1974719Z Build Date: 2026-10-28T21:51:42Z
+pipeline	Set up job	2026-11-07T12:07:59.1976430Z Worker ID: {e3951b88-2ea2-4765-894f-ca06e6065922}
+pipeline	Set up job	2026-11-07T12:07:59.1977357Z Region: northcentralus
+pipeline	Set up job	2026-11-07T12:07:59.1978084Z Cloud: Azure
+pipeline	Set up job	2026-11-07T12:07:59.1978711Z ##[endgroup]
+pipeline	Set up job	2026-11-07T12:07:59.1980365Z ##[group]Operating System
+pipeline	Set up job	2026-11-07T12:07:59.1981106Z Ubuntu
+pipeline	Set up job	2026-11-07T12:07:59.1981823Z 26.04.1
+pipeline	Set up job	2026-11-07T12:07:59.1982429Z LTS
+pipeline	Set up job	2026-11-07T12:07:59.1983048Z ##[endgroup]
+pipeline	Set up job	2026-11-07T12:07:59.1983695Z ##[group]Runner Image
+pipeline	Set up job	2026-11-07T12:07:59.1984376Z Image: ubuntu-26.04
+pipeline	Set up job	2026-11-07T12:07:59.1985405Z Version: 20261101.186.1
+pipeline	Set up job	2026-11-07T12:07:59.1986670Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+pipeline	Set up job	2026-11-07T12:07:59.1988630Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+pipeline	Set up job	2026-11-07T12:07:59.1989798Z ##[endgroup]
+pipeline	Set up job	2026-11-07T12:07:59.1990977Z ##[group]GITHUB_TOKEN Permissions
+pipeline	Set up job	2026-11-07T12:07:59.1993386Z Contents: read
+pipeline	Set up job	2026-11-07T12:07:59.1994084Z Metadata: read
+pipeline	Set up job	2026-11-07T12:07:59.1994820Z ##[endgroup]
+pipeline	Set up job	2026-11-07T12:07:59.1997649Z Secret source: Actions
+pipeline	Set up job	2026-11-07T12:07:59.1998810Z Cache mode: write
+pipeline	Set up job	2026-11-07T12:07:59.1999829Z Prepare workflow directory
+pipeline	Set up job	2026-11-07T12:07:59.2587496Z Prepare all required actions
+pipeline	Set up job	2026-11-07T12:07:59.2638179Z Getting action download info
+pipeline	Set up job	2026-11-07T12:07:59.4892682Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+pipeline	Set up job	2026-11-07T12:07:59.5908957Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+pipeline	Set up job	2026-11-07T12:07:59.6496991Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+pipeline	Set up job	2026-11-07T12:07:59.7363160Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+pipeline	Set up job	2026-11-07T12:07:59.9208299Z Complete job name: pipeline
+pipeline	Checkout	﻿2026-11-07T12:08:00.0100346Z ##[group]Run actions/checkout@v4
+pipeline	Checkout	2026-11-07T12:08:00.0101416Z with:
+pipeline	Checkout	2026-11-07T12:08:00.0101953Z   repository: LAT-06/AI-engineering-as3
+pipeline	Checkout	2026-11-07T12:08:00.0106190Z   token: ***
+pipeline	Checkout	2026-11-07T12:08:00.0106695Z   ssh-strict: true
+pipeline	Checkout	2026-11-07T12:08:00.0107179Z   ssh-user: git
+pipeline	Checkout	2026-11-07T12:08:00.0107671Z   persist-credentials: true
+pipeline	Checkout	2026-11-07T12:08:00.0108209Z   clean: true
+pipeline	Checkout	2026-11-07T12:08:00.0108690Z   sparse-checkout-cone-mode: true
+pipeline	Checkout	2026-11-07T12:08:00.0109258Z   fetch-depth: 1
+pipeline	Checkout	2026-11-07T12:08:00.0109732Z   fetch-tags: false
+pipeline	Checkout	2026-11-07T12:08:00.0110231Z   show-progress: true
+pipeline	Checkout	2026-11-07T12:08:00.0110719Z   lfs: false
+pipeline	Checkout	2026-11-07T12:08:00.0111172Z   submodules: false
+pipeline	Checkout	2026-11-07T12:08:00.0111662Z   set-safe-directory: true
+pipeline	Checkout	2026-11-07T12:08:00.0112223Z   allow-unsafe-pr-checkout: false
+pipeline	Checkout	2026-11-07T12:08:00.0113151Z env:
+pipeline	Checkout	2026-11-07T12:08:00.0113805Z   SUPABASE_URL: ***
+pipeline	Checkout	2026-11-07T12:08:00.0116238Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Checkout	2026-11-07T12:08:00.0116841Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Checkout	2026-11-07T12:08:00.0117541Z   SUPABASE_BUCKET: processed_data
+pipeline	Checkout	2026-11-07T12:08:00.0118119Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Checkout	2026-11-07T12:08:00.0118741Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Checkout	2026-11-07T12:08:00.0119386Z   APPROVE: 0
+pipeline	Checkout	2026-11-07T12:08:00.0119959Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Checkout	2026-11-07T12:08:00.0120783Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Checkout	2026-11-07T12:08:00.0121594Z   S3_ENDPOINT_URL: ***
+pipeline	Checkout	2026-11-07T12:08:00.0122103Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.2953652Z Syncing repository: LAT-06/AI-engineering-as3
+pipeline	Checkout	2026-11-07T12:08:00.2956951Z ##[group]Getting Git version info
+pipeline	Checkout	2026-11-07T12:08:00.2958488Z Working directory is '/home/runner/work/AI-engineering-as3/AI-engineering-as3'
+pipeline	Checkout	2026-11-07T12:08:00.2960618Z [command]/usr/bin/git version
+pipeline	Checkout	2026-11-07T12:08:00.3004419Z git version 2.56.0
+pipeline	Checkout	2026-11-07T12:08:00.3041798Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.3051114Z Temporarily overriding HOME='/home/runner/work/_temp/a71cfc33-59e1-4b94-9890-f54c0c401159' before making global git config changes
+pipeline	Checkout	2026-11-07T12:08:00.3054154Z Adding repository directory to the temporary git global config as a safe directory
+pipeline	Checkout	2026-11-07T12:08:00.3058143Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AI-engineering-as3/AI-engineering-as3
+pipeline	Checkout	2026-11-07T12:08:00.3139996Z Deleting the contents of '/home/runner/work/AI-engineering-as3/AI-engineering-as3'
+pipeline	Checkout	2026-11-07T12:08:00.3143995Z ##[group]Initializing the repository
+pipeline	Checkout	2026-11-07T12:08:00.3150928Z [command]/usr/bin/git init /home/runner/work/AI-engineering-as3/AI-engineering-as3
+pipeline	Checkout	2026-11-07T12:08:00.3276439Z hint: Using 'master' as the name for the initial branch. This default branch name
+pipeline	Checkout	2026-11-07T12:08:00.3278248Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+pipeline	Checkout	2026-11-07T12:08:00.3279357Z hint: to use in all of your new repositories, which will suppress this warning,
+pipeline	Checkout	2026-11-07T12:08:00.3280480Z hint: call:
+pipeline	Checkout	2026-11-07T12:08:00.3280972Z hint:
+pipeline	Checkout	2026-11-07T12:08:00.3281596Z hint: 	git config --global init.defaultBranch <name>
+pipeline	Checkout	2026-11-07T12:08:00.3282526Z hint:
+pipeline	Checkout	2026-11-07T12:08:00.3283240Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+pipeline	Checkout	2026-11-07T12:08:00.3284409Z hint: 'development'. The just-created branch can be renamed via this command:
+pipeline	Checkout	2026-11-07T12:08:00.3285629Z hint:
+pipeline	Checkout	2026-11-07T12:08:00.3286130Z hint: 	git branch -m <name>
+pipeline	Checkout	2026-11-07T12:08:00.3286921Z hint:
+pipeline	Checkout	2026-11-07T12:08:00.3288094Z hint: Disable this message with "git config set advice.defaultBranchName false"
+pipeline	Checkout	2026-11-07T12:08:00.3290262Z Initialized empty Git repository in /home/runner/work/AI-engineering-as3/AI-engineering-as3/.git/
+pipeline	Checkout	2026-11-07T12:08:00.3303553Z [command]/usr/bin/git remote add origin https://github.com/LAT-06/AI-engineering-as3
+pipeline	Checkout	2026-11-07T12:08:00.3356873Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.3358188Z ##[group]Disabling automatic garbage collection
+pipeline	Checkout	2026-11-07T12:08:00.3361882Z [command]/usr/bin/git config --local gc.auto 0
+pipeline	Checkout	2026-11-07T12:08:00.3401745Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.3402664Z ##[group]Setting up auth
+pipeline	Checkout	2026-11-07T12:08:00.3411197Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+pipeline	Checkout	2026-11-07T12:08:00.3456046Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+pipeline	Checkout	2026-11-07T12:08:00.3970711Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+pipeline	Checkout	2026-11-07T12:08:00.4015157Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+pipeline	Checkout	2026-11-07T12:08:00.4330031Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+pipeline	Checkout	2026-11-07T12:08:00.4369738Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+pipeline	Checkout	2026-11-07T12:08:00.4668327Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+pipeline	Checkout	2026-11-07T12:08:00.4710754Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.4712272Z ##[group]Fetching the repository
+pipeline	Checkout	2026-11-07T12:08:00.4720999Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +53604281e28805bc95da9c4e7d676c8b571758b5:refs/remotes/origin/main
+pipeline	Checkout	2026-11-07T12:08:00.9085606Z From https://github.com/LAT-06/AI-engineering-as3
+pipeline	Checkout	2026-11-07T12:08:00.9088752Z  * [new ref]         53604281e28805bc95da9c4e7d676c8b571758b5 -> origin/main
+pipeline	Checkout	2026-11-07T12:08:00.9093441Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.9095439Z ##[group]Determining the checkout info
+pipeline	Checkout	2026-11-07T12:08:00.9097838Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.9100469Z [command]/usr/bin/git sparse-checkout disable
+pipeline	Checkout	2026-11-07T12:08:00.9166761Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+pipeline	Checkout	2026-11-07T12:08:00.9203351Z ##[group]Checking out the ref
+pipeline	Checkout	2026-11-07T12:08:00.9207026Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+pipeline	Checkout	2026-11-07T12:08:00.9382697Z Switched to a new branch 'main'
+pipeline	Checkout	2026-11-07T12:08:00.9391284Z branch 'main' set up to track 'origin/main'.
+pipeline	Checkout	2026-11-07T12:08:00.9400704Z ##[endgroup]
+pipeline	Checkout	2026-11-07T12:08:00.9450274Z [command]/usr/bin/git log -1 --format=%H
+pipeline	Checkout	2026-11-07T12:08:00.9477378Z 53604281e28805bc95da9c4e7d676c8b571758b5
+pipeline	Set up Python	﻿2026-11-07T12:08:00.9857767Z ##[group]Run actions/setup-python@v5
+pipeline	Set up Python	2026-11-07T12:08:00.9859153Z with:
+pipeline	Set up Python	2026-11-07T12:08:00.9860013Z   python-version: 3.11
+pipeline	Set up Python	2026-11-07T12:08:00.9861024Z   check-latest: false
+pipeline	Set up Python	2026-11-07T12:08:00.9871455Z   token: ***
+pipeline	Set up Python	2026-11-07T12:08:00.9872412Z   update-environment: true
+pipeline	Set up Python	2026-11-07T12:08:00.9873513Z   allow-prereleases: false
+pipeline	Set up Python	2026-11-07T12:08:00.9874573Z   freethreaded: false
+pipeline	Set up Python	2026-11-07T12:08:00.9875627Z env:
+pipeline	Set up Python	2026-11-07T12:08:00.9876842Z   SUPABASE_URL: ***
+pipeline	Set up Python	2026-11-07T12:08:00.9882698Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Set up Python	2026-11-07T12:08:00.9883933Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Set up Python	2026-11-07T12:08:00.9885359Z   SUPABASE_BUCKET: processed_data
+pipeline	Set up Python	2026-11-07T12:08:00.9886562Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Set up Python	2026-11-07T12:08:00.9887861Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Set up Python	2026-11-07T12:08:00.9889232Z   APPROVE: 0
+pipeline	Set up Python	2026-11-07T12:08:00.9890360Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Set up Python	2026-11-07T12:08:00.9892126Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Set up Python	2026-11-07T12:08:00.9893872Z   S3_ENDPOINT_URL: ***
+pipeline	Set up Python	2026-11-07T12:08:00.9894903Z ##[endgroup]
+pipeline	Set up Python	2026-11-07T12:08:01.1416283Z ##[group]Installed versions
+pipeline	Set up Python	2026-11-07T12:08:01.1537555Z (node:2397) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Set up Python	2026-11-07T12:08:01.1539266Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Set up Python	2026-11-07T12:08:01.1540199Z Successfully set up CPython (3.11.18)
+pipeline	Set up Python	2026-11-07T12:08:01.1541212Z ##[endgroup]
+pipeline	Cache pip	﻿2026-11-07T12:08:01.1788867Z ##[group]Run actions/cache@v4
+pipeline	Cache pip	2026-11-07T12:08:01.1789770Z with:
+pipeline	Cache pip	2026-11-07T12:08:01.1790442Z   path: ~/.cache/pip
+pipeline	Cache pip	2026-11-07T12:08:01.1791256Z   key: Linux-pip-studio9-v1
+pipeline	Cache pip	2026-11-07T12:08:01.1792058Z   restore-keys: Linux-pip-studio9-
+pipeline	Cache pip	2026-11-07T12:08:01.1792900Z   enableCrossOsArchive: false
+pipeline	Cache pip	2026-11-07T12:08:01.1793694Z   fail-on-cache-miss: false
+pipeline	Cache pip	2026-11-07T12:08:01.1794469Z   lookup-only: false
+pipeline	Cache pip	2026-11-07T12:08:01.1795382Z   save-always: false
+pipeline	Cache pip	2026-11-07T12:08:01.1796095Z env:
+pipeline	Cache pip	2026-11-07T12:08:01.1797043Z   SUPABASE_URL: ***
+pipeline	Cache pip	2026-11-07T12:08:01.1800101Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Cache pip	2026-11-07T12:08:01.1800951Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Cache pip	2026-11-07T12:08:01.1801838Z   SUPABASE_BUCKET: processed_data
+pipeline	Cache pip	2026-11-07T12:08:01.1802655Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Cache pip	2026-11-07T12:08:01.1803527Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Cache pip	2026-11-07T12:08:01.1804405Z   APPROVE: 0
+pipeline	Cache pip	2026-11-07T12:08:01.1805364Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Cache pip	2026-11-07T12:08:01.1806473Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Cache pip	2026-11-07T12:08:01.1807606Z   S3_ENDPOINT_URL: ***
+pipeline	Cache pip	2026-11-07T12:08:01.1808470Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Cache pip	2026-11-07T12:08:01.1809629Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Cache pip	2026-11-07T12:08:01.1810786Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Cache pip	2026-11-07T12:08:01.1811848Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Cache pip	2026-11-07T12:08:01.1812912Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Cache pip	2026-11-07T12:08:01.1813989Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Cache pip	2026-11-07T12:08:01.1814925Z ##[endgroup]
+pipeline	Cache pip	2026-11-07T12:08:01.2975363Z (node:2406) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Cache pip	2026-11-07T12:08:01.2977184Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Cache pip	2026-11-07T12:08:01.4262284Z Cache hit for: Linux-pip-studio9-v1
+pipeline	Cache pip	2026-11-07T12:08:01.4396278Z (node:2406) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+pipeline	Cache pip	2026-11-07T12:08:02.5728506Z Received 134217728 of 457541082 (29.3%), 126.1 MBs/sec
+pipeline	Cache pip	2026-11-07T12:08:03.5724823Z Received 306184192 of 457541082 (66.9%), 144.8 MBs/sec
+pipeline	Cache pip	2026-11-07T12:08:04.3169892Z Received 457541082 of 457541082 (100.0%), 158.4 MBs/sec
+pipeline	Cache pip	2026-11-07T12:08:04.3182594Z Cache Size: ~436 MB (457541082 B)
+pipeline	Cache pip	2026-11-07T12:08:04.3236428Z [command]/usr/bin/tar -xf /home/runner/work/_temp/10b3fcab-d5a6-44fe-8c85-462417502614/cache.tzst -P -C /home/runner/work/AI-engineering-as3/AI-engineering-as3 --use-compress-program unzstd
+pipeline	Cache pip	2026-11-07T12:08:05.0716443Z Cache restored successfully
+pipeline	Cache pip	2026-11-07T12:08:05.1085413Z Cache restored from key: Linux-pip-studio9-v1
+pipeline	Restore MLflow registry (champion continuity)	﻿2026-11-07T12:08:05.1322409Z ##[group]Run actions/cache/restore@v4
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1322757Z with:
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1323002Z   path: mlruns/mlflow.db
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1323269Z   key: mlruns-42370904088
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1323532Z   restore-keys: mlruns-
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1323790Z   enableCrossOsArchive: false
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1324108Z   fail-on-cache-miss: false
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1324372Z   lookup-only: false
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1324619Z env:
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1325188Z   SUPABASE_URL: ***
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1326603Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1326918Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1327246Z   SUPABASE_BUCKET: processed_data
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1327543Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1327863Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1328195Z   APPROVE: 0
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1328480Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1328920Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1329359Z   S3_ENDPOINT_URL: ***
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1329712Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1330183Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1330639Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1331080Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1331525Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1331935Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.1332289Z ##[endgroup]
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.2484802Z (node:2424) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.2486414Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.3581462Z Cache hit for restore-key: mlruns-42370892135
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.3703767Z (node:2424) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.5102414Z Received 26997 of 26997 (100.0%), 0.6 MBs/sec
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.5103144Z Cache Size: ~0 MB (26997 B)
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.5130801Z [command]/usr/bin/tar -xf /home/runner/work/_temp/fbdd31ff-5bab-4101-9e94-34da4e3ca2fb/cache.tzst -P -C /home/runner/work/AI-engineering-as3/AI-engineering-as3 --use-compress-program unzstd
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.5209695Z Cache restored successfully
+pipeline	Restore MLflow registry (champion continuity)	2026-11-07T12:08:05.5287528Z Cache restored from key: mlruns-42370892135
+pipeline	Install dependencies (CPU torch)	﻿2026-11-07T12:08:05.5404853Z ##[group]Run python -m pip install --upgrade pip
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5405930Z ^[[36;1mpython -m pip install --upgrade pip^[[0m
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5406486Z ^[[36;1mpip install "torch==2.2.2" --index-url https://download.pytorch.org/whl/cpu^[[0m
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5407133Z ^[[36;1mgrep -v -e '^torch' -e 'psycopg\[binary\]' requirements.txt > /tmp/req-ci.txt^[[0m
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5407597Z ^[[36;1mpip install -r /tmp/req-ci.txt^[[0m
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5468093Z shell: /usr/bin/bash -e {0}
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5468434Z env:
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5468884Z   SUPABASE_URL: ***
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5470421Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5470748Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5471097Z   SUPABASE_BUCKET: processed_data
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5471418Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5471772Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5472127Z   APPROVE: 0
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5472436Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5472958Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5473436Z   S3_ENDPOINT_URL: ***
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5473775Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5474272Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5474772Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5475589Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5476082Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5476533Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:05.5476919Z ##[endgroup]
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.2129584Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (26.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.2740005Z Collecting pip
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.3061061Z   Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.3144364Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.3595757Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 65.8 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.4077891Z Installing collected packages: pip
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.4086295Z   Attempting uninstall: pip
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.4092429Z     Found existing installation: pip 26.2.2
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.4539628Z     Uninstalling pip-26.2.2:
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:06.4606166Z       Successfully uninstalled pip-26.2.2
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:07.4190330Z Successfully installed pip-26.3
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:07.9534101Z Looking in indexes: https://download.pytorch.org/whl/cpu
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.1289273Z Collecting torch==2.2.2
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.1814896Z   Using cached torch-2.2.2%2Bcpu-cp311-cp311-linux_x86_64.whl (186.8 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.4973485Z Collecting filelock (from torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.4990806Z   Using cached filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5147022Z Collecting typing-extensions>=4.8.0 (from torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5163933Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5331819Z Collecting sympy (from torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5348035Z   Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5573980Z Collecting networkx (from torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5591363Z   Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5748095Z Collecting jinja2 (from torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.5805479Z   Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6015557Z Collecting fsspec (from torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6031336Z   Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6330794Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6390120Z   Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6518371Z Collecting mpmath<1.4,>=1.1.0 (from sympy->torch==2.2.2)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6535370Z   Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6574744Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6590128Z Using cached filelock-4.2.4-py3-none-any.whl (162 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6604791Z Using cached fsspec-2026.9.0-py3-none-any.whl (221 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6683673Z Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6749472Z Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6764156Z Using cached networkx-3.6.1-py3-none-any.whl (2.1 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6786703Z Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.6826082Z Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:08.8198123Z Installing collected packages: mpmath, typing-extensions, sympy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:23.4504666Z 
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:23.4518109Z Successfully installed MarkupSafe-3.0.3 filelock-4.2.4 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 sympy-1.14.0 torch-2.2.2+cpu typing-extensions-4.16.0
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.0038584Z Collecting pandas>=2.1 (from -r /tmp/req-ci.txt (line 1))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.0259086Z   Downloading pandas-3.1.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.1110173Z Collecting pyarrow>=14 (from -r /tmp/req-ci.txt (line 2))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.1148429Z   Downloading pyarrow-26.0.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.2988935Z Collecting numpy==1.26.4 (from -r /tmp/req-ci.txt (line 3))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3008184Z   Using cached numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3267028Z Collecting pvlib>=0.10 (from -r /tmp/req-ci.txt (line 4))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3283415Z   Using cached pvlib-0.16.1-py3-none-any.whl.metadata (2.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3482148Z Collecting requests>=2.31 (from -r /tmp/req-ci.txt (line 5))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3499079Z   Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3817109Z Collecting pyyaml>=6 (from -r /tmp/req-ci.txt (line 6))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.3833585Z   Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4240928Z Collecting pytest>=7 (from -r /tmp/req-ci.txt (line 7))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4257792Z   Using cached pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4398078Z Collecting openpyxl>=3.1 (from -r /tmp/req-ci.txt (line 8))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4413621Z   Using cached openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4621865Z Collecting supabase (from -r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4660857Z   Downloading supabase-2.34.1-py3-none-any.whl.metadata (6.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4826008Z Collecting python-dotenv (from -r /tmp/req-ci.txt (line 10))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.4840155Z   Using cached python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.5587359Z Collecting scikit-learn>=1.3 (from -r /tmp/req-ci.txt (line 12))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.5604024Z   Using cached scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.5877139Z Collecting mlflow>=2.10 (from -r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.5913131Z   Downloading mlflow-3.18.0-py3-none-any.whl.metadata (50 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.6591759Z Collecting psycopg2-binary (from -r /tmp/req-ci.txt (line 14))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.6609388Z   Using cached psycopg2_binary-2.9.13-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.6771874Z Collecting opentelemetry-sdk==1.45.1 (from -r /tmp/req-ci.txt (line 16))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.6787719Z   Using cached opentelemetry_sdk-1.45.1-py3-none-any.whl.metadata (1.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.6922339Z Collecting opentelemetry-exporter-otlp-proto-http==1.45.1 (from -r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.6937194Z   Using cached opentelemetry_exporter_otlp_proto_http-1.45.1-py3-none-any.whl.metadata (3.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.7625346Z Collecting dvc[s3] (from -r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.7641183Z   Using cached dvc-3.67.1-py3-none-any.whl.metadata (17 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.7856628Z Collecting opentelemetry-api==1.45.1 (from opentelemetry-sdk==1.45.1->-r /tmp/req-ci.txt (line 16))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.7872382Z   Using cached opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8016706Z Collecting opentelemetry-semantic-conventions==0.66b1 (from opentelemetry-sdk==1.45.1->-r /tmp/req-ci.txt (line 16))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8031162Z   Using cached opentelemetry_semantic_conventions-0.66b1-py3-none-any.whl.metadata (2.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8049311Z Requirement already satisfied: typing-extensions>=4.5.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from opentelemetry-sdk==1.45.1->-r /tmp/req-ci.txt (line 16)) (4.16.0)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8188564Z Collecting googleapis-common-protos~=1.52 (from opentelemetry-exporter-otlp-proto-http==1.45.1->-r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8203244Z   Using cached googleapis_common_protos-1.76.0-py3-none-any.whl.metadata (8.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8307898Z Collecting opentelemetry-exporter-http-transport==0.66b1 (from opentelemetry-exporter-http-transport[requests]==0.66b1->opentelemetry-exporter-otlp-proto-http==1.45.1->-r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8323664Z   Using cached opentelemetry_exporter_http_transport-0.66b1-py3-none-any.whl.metadata (2.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8420304Z Collecting opentelemetry-exporter-otlp-common==0.66b1 (from opentelemetry-exporter-otlp-proto-http==1.45.1->-r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8435825Z   Using cached opentelemetry_exporter_otlp_common-0.66b1-py3-none-any.whl.metadata (1.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8560721Z Collecting opentelemetry-exporter-otlp-proto-common==1.45.1 (from opentelemetry-exporter-otlp-proto-http==1.45.1->-r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8577414Z   Using cached opentelemetry_exporter_otlp_proto_common-1.45.1-py3-none-any.whl.metadata (1.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8736218Z Collecting opentelemetry-proto==1.45.1 (from opentelemetry-exporter-otlp-proto-http==1.45.1->-r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:24.8753306Z   Using cached opentelemetry_proto-1.45.1-py3-none-any.whl.metadata (2.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.0411549Z Collecting protobuf<8.0,>=5.0 (from opentelemetry-proto==1.45.1->opentelemetry-exporter-otlp-proto-http==1.45.1->-r /tmp/req-ci.txt (line 17))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.0426809Z   Using cached protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.1532949Z Collecting charset_normalizer<4,>=2 (from requests>=2.31->-r /tmp/req-ci.txt (line 5))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.1550436Z   Using cached charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.1694809Z Collecting idna<4,>=2.5 (from requests>=2.31->-r /tmp/req-ci.txt (line 5))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.1709644Z   Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.1890320Z Collecting urllib3<3,>=1.26 (from requests>=2.31->-r /tmp/req-ci.txt (line 5))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.1906647Z   Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2058037Z Collecting certifi>=2023.5.7 (from requests>=2.31->-r /tmp/req-ci.txt (line 5))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2072844Z   Using cached certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2137125Z Collecting pandas>=2.1 (from -r /tmp/req-ci.txt (line 1))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2153552Z   Using cached pandas-3.1.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (18 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2236504Z INFO: pip is looking at multiple versions of pandas to determine which version is compatible with other requirements. This could take a while.
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2258536Z   Using cached pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2569601Z Collecting python-dateutil>=2.8.2 (from pandas>=2.1->-r /tmp/req-ci.txt (line 1))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.2607162Z   Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.3004676Z Collecting pytz (from pvlib>=0.10->-r /tmp/req-ci.txt (line 4))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.3041079Z   Downloading pytz-2026.6-py2.py3-none-any.whl.metadata (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.4283914Z Collecting scipy>=1.9.2 (from pvlib>=0.10->-r /tmp/req-ci.txt (line 4))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.4300606Z   Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.4788111Z Collecting h5py (from pvlib>=0.10->-r /tmp/req-ci.txt (line 4))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.4804670Z   Using cached h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.4925300Z Collecting tzdata (from pvlib>=0.10->-r /tmp/req-ci.txt (line 4))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.4940268Z   Using cached tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5039487Z Collecting iniconfig>=2 (from pytest>=7->-r /tmp/req-ci.txt (line 7))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5055638Z   Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5176355Z Collecting packaging>=24 (from pytest>=7->-r /tmp/req-ci.txt (line 7))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5192792Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5292195Z Collecting pluggy<2,>=1.6 (from pytest>=7->-r /tmp/req-ci.txt (line 7))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5308174Z   Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5466611Z Collecting pygments>=2.15 (from pytest>=7->-r /tmp/req-ci.txt (line 7))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5483082Z   Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5572374Z Collecting et-xmlfile (from openpyxl>=3.1->-r /tmp/req-ci.txt (line 8))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5589596Z   Using cached et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5737822Z Collecting realtime==2.34.1 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5774858Z   Downloading realtime-2.34.1-py3-none-any.whl.metadata (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5936976Z Collecting supabase-functions==2.34.1 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.5974644Z   Downloading supabase_functions-2.34.1-py3-none-any.whl.metadata (2.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6142860Z Collecting storage3==2.34.1 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6178746Z   Downloading storage3-2.34.1-py3-none-any.whl.metadata (2.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6336739Z Collecting supabase-auth==2.34.1 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6373894Z   Downloading supabase_auth-2.34.1-py3-none-any.whl.metadata (6.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6539675Z Collecting postgrest==2.34.1 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6577040Z   Downloading postgrest-2.34.1-py3-none-any.whl.metadata (3.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.6754766Z Collecting httpx<0.29,>=0.26 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.7169877Z   Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.9456611Z Collecting yarl>=1.22.0 (from supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.9475437Z   Using cached yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.9651541Z Collecting deprecation>=2.1.0 (from postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:25.9668351Z   Using cached deprecation-2.1.0-py2.py3-none-any.whl.metadata (4.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.0590072Z Collecting pydantic<3,>=2.11.7 (from postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.0627269Z   Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2393690Z Collecting websockets<16,>=11 (from realtime==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2411715Z   Using cached websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2570945Z Collecting pyjwt>=2.15.1 (from pyjwt[crypto]>=2.15.1->supabase-auth==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2587013Z   Using cached pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2774377Z Collecting anyio (from httpx<0.29,>=0.26->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2810410Z   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2964067Z Collecting httpcore==1.* (from httpx<0.29,>=0.26->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.2979190Z   Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3086012Z Collecting h11>=0.16 (from httpcore==1.*->httpx<0.29,>=0.26->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3100910Z   Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3243206Z Collecting h2<5,>=3 (from httpx[http2]<0.29,>=0.26->postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3260736Z   Using cached h2-4.4.1-py3-none-any.whl.metadata (3.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3366241Z Collecting hyperframe<7,>=6.1 (from h2<5,>=3->httpx[http2]<0.29,>=0.26->postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3381707Z   Using cached hyperframe-6.1.0-py3-none-any.whl.metadata (4.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3484023Z Collecting hpack<5,>=4.2 (from h2<5,>=3->httpx[http2]<0.29,>=0.26->postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3500796Z   Using cached hpack-4.2.0-py3-none-any.whl.metadata (3.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3613307Z Collecting annotated-types>=0.6.0 (from pydantic<3,>=2.11.7->postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:26.3629242Z   Using cached annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.0426291Z Collecting pydantic-core==2.50.4 (from pydantic<3,>=2.11.7->postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.0465388Z   Downloading pydantic_core-2.50.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.0587640Z Collecting typing-inspection>=0.4.4 (from pydantic<3,>=2.11.7->postgrest==2.34.1->supabase->-r /tmp/req-ci.txt (line 9))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.0621371Z   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.0786825Z Collecting attrs>=22.2.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.0802827Z   Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1062617Z Collecting celery (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1100652Z   Downloading celery-5.7.0-py3-none-any.whl.metadata (23 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1319951Z Collecting colorama>=0.3.9 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1337456Z   Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1439789Z Collecting configobj>=5.0.9 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1457368Z   Using cached configobj-5.0.9-py2.py3-none-any.whl.metadata (3.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1557770Z Collecting distro>=1.3 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1576484Z   Using cached distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1684586Z Collecting dpath<3,>=2.1.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.1708726Z   Using cached dpath-2.2.0-py3-none-any.whl.metadata (15 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.3817242Z Collecting dulwich (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.3854484Z   Downloading dulwich-1.2.21-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (6.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4199602Z Collecting dvc-data<3.19.0,>=3.18.2 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4215990Z   Using cached dvc_data-3.18.3-py3-none-any.whl.metadata (4.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4333138Z Collecting dvc-http>=2.29.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4348376Z   Using cached dvc_http-2.32.0-py3-none-any.whl.metadata (1.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4594140Z Collecting dvc-objects (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4630969Z   Downloading dvc_objects-5.3.1-py3-none-any.whl.metadata (3.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4782277Z Collecting dvc-render<2,>=1.0.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4799309Z   Using cached dvc_render-1.0.2-py3-none-any.whl.metadata (5.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4936852Z Collecting dvc-studio-client<1,>=0.21 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.4953033Z   Using cached dvc_studio_client-0.23.0-py3-none-any.whl.metadata (4.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5071401Z Collecting dvc-task<1,>=0.3.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5087502Z   Using cached dvc_task-0.40.2-py3-none-any.whl.metadata (10.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5197149Z Collecting flatten-dict<1,>=0.4.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5213467Z   Using cached flatten_dict-0.5.0-py3-none-any.whl.metadata (8.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5322321Z Collecting flufl.lock<10,>=8.1.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5339109Z   Using cached flufl_lock-9.2.0-py3-none-any.whl.metadata (3.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5356385Z Requirement already satisfied: fsspec>=2024.2.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from dvc[s3]->-r /tmp/req-ci.txt (line 11)) (2026.9.0)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5441987Z Collecting funcy>=1.14 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5458210Z   Using cached funcy-2.1-py3-none-any.whl.metadata (6.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5550210Z Collecting grandalf<1,>=0.7 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5565840Z   Using cached grandalf-0.8-py3-none-any.whl.metadata (1.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5693040Z Collecting gto<2,>=1.6.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5708652Z   Using cached gto-1.10.1-py3-none-any.whl.metadata (4.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5873359Z Collecting hydra-core>=1.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5891247Z   Using cached hydra_core-1.3.8-py3-none-any.whl.metadata (5.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.5996203Z Collecting iterative-telemetry>=0.0.7 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6012947Z   Using cached iterative_telemetry-0.0.10-py3-none-any.whl.metadata (4.1 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6270096Z Collecting kombu (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6308047Z   Downloading kombu-5.7.0-py3-none-any.whl.metadata (17 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6374094Z Requirement already satisfied: networkx>=2.5 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from dvc[s3]->-r /tmp/req-ci.txt (line 11)) (3.6.1)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6603182Z Collecting omegaconf (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6620853Z   Using cached omegaconf-2.4.0-py3-none-any.whl.metadata (4.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6746910Z Collecting pathspec<2,>=0.10.3 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6761917Z   Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.6986132Z Collecting platformdirs<5,>=3.1.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7024520Z   Downloading platformdirs-4.14.5-py3-none-any.whl.metadata (5.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7626586Z Collecting psutil>=5.8 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7644631Z   Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7785832Z Collecting pydot>=1.2.4 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7800698Z   Using cached pydot-4.0.1-py3-none-any.whl.metadata (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7917632Z Collecting pygtrie>=2.3.2 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.7933265Z   Using cached pygtrie-2.6.2-py3-none-any.whl.metadata (12 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.8129018Z Collecting pyparsing>=3.0.0 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.8143705Z   Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.8404154Z Collecting rich>=12 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:27.8420530Z   Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0036924Z Collecting ruamel.yaml>=0.17.11 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0054235Z   Using cached ruamel_yaml-0.19.1-py3-none-any.whl.metadata (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0237850Z Collecting scmrepo<4,>=3.5.2 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0252901Z   Using cached scmrepo-3.6.2-py3-none-any.whl.metadata (4.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0367473Z Collecting shortuuid>=0.5 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0383486Z   Using cached shortuuid-1.0.13-py3-none-any.whl.metadata (5.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0530830Z Collecting shtab<2,>=1.3.4 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0545695Z   Using cached shtab-1.13.0-py3-none-any.whl.metadata (7.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0651626Z Collecting tabulate>=0.8.7 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0668217Z   Using cached tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0828384Z Collecting tomlkit>=0.11.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.0843594Z   Using cached tomlkit-0.15.2-py3-none-any.whl.metadata (3.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1067557Z Collecting tqdm<5,>=4.63.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1084133Z   Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1237009Z Collecting voluptuous>=0.11.7 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1253603Z   Using cached voluptuous-0.16.0-py3-none-any.whl.metadata (20 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1391878Z Collecting zc.lockfile>=1.2.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1428083Z   Downloading zc_lockfile-4.1-py3-none-any.whl.metadata (6.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1553827Z Collecting dvc-s3<4,>=3.2.1 (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1570410Z   Using cached dvc_s3-3.3.0-py3-none-any.whl.metadata (1.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1757827Z Collecting dictdiffer>=0.8.1 (from dvc-data<3.19.0,>=3.18.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1773242Z   Using cached dictdiffer-0.10.0-py3-none-any.whl.metadata (2.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1919653Z Collecting diskcache>=5.2.1 (from dvc-data<3.19.0,>=3.18.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.1937258Z   Using cached diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.2089930Z Collecting sqltrie<1,>=0.11.0 (from dvc-data<3.19.0,>=3.18.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.2105671Z   Using cached sqltrie-0.11.3-py3-none-any.whl.metadata (3.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.5133480Z Collecting orjson<4,>=3 (from dvc-data<3.19.0,>=3.18.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.5150309Z   Using cached orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (42 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.5362684Z Collecting s3fs>=2024.12.0 (from dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.5377981Z   Using cached s3fs-2026.9.0-py3-none-any.whl.metadata (1.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.5574606Z Collecting aiobotocore>=2.5.0 (from dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.5590526Z   Using cached aiobotocore-3.10.0-py3-none-any.whl.metadata (32 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.8490311Z Collecting botocore (from dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.8527870Z   Downloading botocore-1.43.126-py3-none-any.whl.metadata (5.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.8788508Z Collecting billiard>=4.3.2 (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.8823672Z   Downloading billiard-4.3.2-py3-none-any.whl.metadata (5.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.8945981Z Collecting vine<6.0,>=5.1.0 (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.8964792Z   Using cached vine-5.1.0-py3-none-any.whl.metadata (2.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9107316Z Collecting click<9.0,>=8.3.1 (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9141994Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9241143Z Collecting click-didyoumean>=0.3.1 (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9256545Z   Using cached click_didyoumean-0.3.1-py3-none-any.whl.metadata (3.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9346778Z Collecting click-repl>=0.4.1 (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9362247Z   Using cached click_repl-0.4.1-py3-none-any.whl.metadata (3.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9449474Z Collecting click-plugins>=1.1.1.2 (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9465397Z   Using cached click_plugins-1.1.1.2-py2.py3-none-any.whl.metadata (6.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9490887Z Collecting python-dateutil>=2.8.2 (from pandas>=2.1->-r /tmp/req-ci.txt (line 1))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9505369Z   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9631956Z Collecting tzlocal (from celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9648220Z   Using cached tzlocal-5.4.5-py3-none-any.whl.metadata (7.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9800654Z Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas>=2.1->-r /tmp/req-ci.txt (line 1))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9815775Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9949488Z Collecting atpublic (from flufl.lock<10,>=8.1.0->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:28.9966220Z   Using cached atpublic-9.0.0-py3-none-any.whl.metadata (2.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0105835Z Collecting entrypoints (from gto<2,>=1.6.0->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0120928Z   Using cached entrypoints-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0265793Z Collecting pydantic-settings>=2 (from gto<2,>=1.6.0->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0280432Z   Using cached pydantic_settings-2.16.2-py3-none-any.whl.metadata (4.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0407679Z Collecting semver>=2.13.0 (from gto<2,>=1.6.0->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0424476Z   Using cached semver-3.1.0-py3-none-any.whl.metadata (6.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0607615Z Collecting amqp>=5.4.2 (from kombu->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0643510Z   Downloading amqp-5.4.2-py3-none-any.whl.metadata (9.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0918655Z Collecting gitpython>3 (from scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.0933786Z   Using cached gitpython-3.2.1-py3-none-any.whl.metadata (13 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.1739284Z Collecting pygit2>=1.14.0 (from scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.1776939Z   Downloading pygit2-1.21.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.1954187Z Collecting asyncssh<3,>=2.13.1 (from scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.1970520Z   Using cached asyncssh-2.24.1-py3-none-any.whl.metadata (9.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.2103957Z Collecting aiohttp-retry>=2.5.0 (from scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.2121107Z   Using cached aiohttp_retry-2.9.1-py3-none-any.whl.metadata (8.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.4888859Z Collecting cryptography>=48.0.1 (from asyncssh<3,>=2.13.1->scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.4906029Z   Using cached cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5159934Z Collecting joblib>=1.4.0 (from scikit-learn>=1.3->-r /tmp/req-ci.txt (line 12))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5175808Z   Using cached joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5470076Z Collecting narwhals>=2.0.1 (from scikit-learn>=1.3->-r /tmp/req-ci.txt (line 12))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5488010Z   Using cached narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5613557Z Collecting threadpoolctl>=3.5.0 (from scikit-learn>=1.3->-r /tmp/req-ci.txt (line 12))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5649735Z   Downloading threadpoolctl-3.8.0-py3-none-any.whl.metadata (29 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5915568Z Collecting mlflow-skinny==3.18.0 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.5954816Z   Downloading mlflow_skinny-3.18.0-py3-none-any.whl.metadata (51 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.6163213Z Collecting mlflow-tracing==3.18.0 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.6201537Z   Downloading mlflow_tracing-3.18.0-py3-none-any.whl.metadata (19 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.6389594Z Collecting Flask-CORS<7 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.6405707Z   Using cached flask_cors-6.0.5-py3-none-any.whl.metadata (5.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.6554388Z Collecting Flask<4 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:29.6571531Z   Using cached flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2293548Z Collecting aiohttp<4,>=3.7.0 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2311603Z   Using cached aiohttp-3.14.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2514005Z Collecting alembic!=1.10.0,<2 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2530522Z   Using cached alembic-1.20.1-py3-none-any.whl.metadata (7.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2697707Z Collecting docker<8,>=4.0.0 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2714138Z   Using cached docker-7.2.0-py3-none-any.whl.metadata (3.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2862960Z Collecting graphene<4 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.2880570Z   Using cached graphene-3.4.3-py2.py3-none-any.whl.metadata (6.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.3045465Z Collecting gunicorn<27 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.3060799Z   Using cached gunicorn-26.2.0-py3-none-any.whl.metadata (5.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.3203446Z Collecting huey<4,>=2.5.4 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.3239797Z   Downloading huey-3.5.4-py3-none-any.whl.metadata (5.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.4457348Z Collecting matplotlib<4 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.4475866Z   Using cached matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.4778963Z Collecting skops<1 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.4793977Z   Using cached skops-0.16.0-py3-none-any.whl.metadata (4.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.7618399Z Collecting sqlalchemy<3,>=1.4.0 (from mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.7657338Z   Downloading sqlalchemy-2.1.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.7925441Z Collecting cachetools<8,>=5.0.0 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.7961870Z   Downloading cachetools-7.3.0-py3-none-any.whl.metadata (5.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.8118719Z Collecting cloudpickle<4 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.8134065Z   Using cached cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.9566650Z Collecting databricks-sdk<1,>=0.20.0 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:30.9603969Z   Downloading databricks_sdk-0.162.0-py3-none-any.whl.metadata (44 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0150175Z Collecting fastapi<1 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0187493Z   Downloading fastapi-0.162.1-py3-none-any.whl.metadata (27 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0486328Z Collecting importlib_metadata!=4.7.0,<11,>=3.7.0 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0522426Z   Downloading importlib_metadata-10.1.0-py3-none-any.whl.metadata (4.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0728630Z Collecting python-multipart<1,>=0.0.18 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0766320Z   Downloading python_multipart-0.0.33-py3-none-any.whl.metadata (6.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0923631Z Collecting sqlparse<1,>=0.4.0 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.0956764Z   Downloading sqlparse-0.6.1-py3-none-any.whl.metadata (6.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1227945Z Collecting starlette<2 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1243748Z   Using cached starlette-1.10.0-py3-none-any.whl.metadata (6.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1484763Z Collecting uvicorn<1 (from mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1501935Z   Using cached uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1671812Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4,>=3.7.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1688698Z   Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1780693Z Collecting aiosignal>=1.4.0 (from aiohttp<4,>=3.7.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.1796391Z   Using cached aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.2386438Z Collecting frozenlist>=1.1.1 (from aiohttp<4,>=3.7.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.2405469Z   Using cached frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.4826650Z Collecting multidict<8.0,>=4.5 (from aiohttp<4,>=3.7.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.4831312Z   Using cached multidict-7.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.5447222Z Collecting propcache>=0.2.0 (from aiohttp<4,>=3.7.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.5463896Z   Using cached propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.5698498Z Collecting Mako (from alembic!=1.10.0,<2->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.5712901Z   Using cached mako-1.4.3-py3-none-any.whl.metadata (2.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.6718751Z Collecting cffi>=2.0.0 (from cryptography>=48.0.1->asyncssh<3,>=2.13.1->scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.6734814Z   Using cached cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7076289Z Collecting google-auth~=2.0 (from databricks-sdk<1,>=0.20.0->mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7112832Z   Downloading google_auth-2.62.1-py3-none-any.whl.metadata (6.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7369972Z Collecting annotated-doc>=0.0.2 (from fastapi<1->mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7384004Z   Using cached annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7500591Z Collecting blinker>=1.9.0 (from Flask<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7517403Z   Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7618546Z Collecting itsdangerous>=2.2.0 (from Flask<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7635170Z   Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7650736Z Requirement already satisfied: jinja2>=3.1.2 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from Flask<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13)) (3.1.6)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7654662Z Requirement already satisfied: markupsafe>=2.1.1 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from Flask<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13)) (3.0.3)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7799392Z Collecting werkzeug>=3.1.0 (from Flask<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7816956Z   Using cached werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.7995259Z Collecting gitdb<5,>=4.0.1 (from gitpython>3->scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8013082Z   Using cached gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8152160Z Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython>3->scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8168999Z   Using cached smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8348819Z Collecting pyasn1-modules>=0.2.1 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8364190Z   Using cached pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8596203Z Collecting graphql-core<3.3,>=3.1 (from graphene<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8632113Z   Downloading graphql_core-3.2.14-py3-none-any.whl.metadata (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8783443Z Collecting graphql-relay<3.3,>=3.1 (from graphene<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.8799898Z   Using cached graphql_relay-3.2.0-py3-none-any.whl.metadata (12 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.9043053Z Collecting zipp>=3.20 (from importlib_metadata!=4.7.0,<11,>=3.7.0->mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:31.9059547Z   Using cached zipp-4.1.2-py3-none-any.whl.metadata (3.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.1000062Z Collecting contourpy>=1.0.1 (from matplotlib<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.1017171Z   Using cached contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.1120290Z Collecting cycler>=0.10 (from matplotlib<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.1136879Z   Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.2573067Z Collecting fonttools>=4.28.2 (from matplotlib<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.2591168Z   Using cached fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (139 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.3300975Z Collecting kiwisolver>=1.3.1 (from matplotlib<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.3318724Z   Using cached kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.4896838Z Collecting pillow>=9 (from matplotlib<4->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.4913248Z   Using cached pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5153349Z Collecting prettytable>=3.9 (from skops<1->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5167825Z   Using cached prettytable-3.18.0-py3-none-any.whl.metadata (37 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5526427Z Collecting aioitertools<1.0.0,>=0.5.1 (from aiobotocore>=2.5.0->dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5542269Z   Using cached aioitertools-0.13.0-py3-none-any.whl.metadata (3.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5614717Z Collecting botocore (from dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5630688Z   Using cached botocore-1.43.117-py3-none-any.whl.metadata (5.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5730082Z Collecting jmespath<2.0.0,>=0.7.1 (from aiobotocore>=2.5.0->dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.5745340Z   Using cached jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.9167461Z Collecting wrapt<3.0.0,>=1.10.10 (from aiobotocore>=2.5.0->dvc-s3<4,>=3.2.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.9204276Z   Downloading wrapt-2.5.2-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.9579455Z Collecting pycparser (from cffi>=2.0.0->cryptography>=48.0.1->asyncssh<3,>=2.13.1->scmrepo<4,>=3.5.2->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.9594410Z   Using cached pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.9878215Z Collecting prompt_toolkit>=3.0.36 (from click-repl>=0.4.1->celery->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:32.9895333Z   Using cached prompt_toolkit-3.0.53-py3-none-any.whl.metadata (6.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.1711483Z Collecting omegaconf (from dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.1729257Z   Using cached omegaconf-2.3.1-py3-none-any.whl.metadata (4.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.1827440Z Collecting antlr4-python3-runtime==4.9.* (from hydra-core>=1.1->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.1828429Z   Using cached antlr4_python3_runtime-4.9.3-py3-none-any.whl
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2031067Z Collecting appdirs (from iterative-telemetry>=0.0.7->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2045699Z   Using cached appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2066181Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from iterative-telemetry>=0.0.7->dvc[s3]->-r /tmp/req-ci.txt (line 11)) (4.2.4)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2414545Z Collecting wcwidth>=0.3.5 (from prettytable>=3.9->skops<1->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2431307Z   Using cached wcwidth-0.9.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (23 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2720204Z Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.18.0->mlflow>=2.10->-r /tmp/req-ci.txt (line 13))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.2735433Z   Using cached pyasn1-0.6.5-py3-none-any.whl.metadata (8.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3091433Z Collecting markdown-it-py>=2.2.0 (from rich>=12->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3107310Z   Using cached markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3240692Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=12->dvc[s3]->-r /tmp/req-ci.txt (line 11))
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3254740Z   Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3794449Z Using cached numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3874011Z Using cached opentelemetry_sdk-1.45.1-py3-none-any.whl (140 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3889758Z Using cached opentelemetry_exporter_otlp_proto_http-1.45.1-py3-none-any.whl (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3904185Z Using cached opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3919370Z Using cached opentelemetry_exporter_http_transport-0.66b1-py3-none-any.whl (12 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3933908Z Using cached opentelemetry_exporter_otlp_common-0.66b1-py3-none-any.whl (12 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3949066Z Using cached opentelemetry_exporter_otlp_proto_common-1.45.1-py3-none-any.whl (15 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3963844Z Using cached opentelemetry_proto-1.45.1-py3-none-any.whl (72 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3978600Z Using cached opentelemetry_semantic_conventions-0.66b1-py3-none-any.whl (206 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.3993709Z Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4010278Z Using cached charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4026034Z Using cached googleapis_common_protos-1.76.0-py3-none-any.whl (307 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4041300Z Using cached idna-3.20-py3-none-any.whl (69 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4056228Z Using cached protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4071908Z Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4087446Z Using cached pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.4167251Z Downloading pyarrow-26.0.1-cp311-cp311-manylinux_2_28_x86_64.whl (55.0 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.5811393Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.0/55.0 MB 347.7 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.5826952Z Using cached pvlib-0.16.1-py3-none-any.whl (19.4 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.5917451Z Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.5935185Z Using cached pytest-9.2.0-py3-none-any.whl (411 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.5950921Z Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.5965372Z Using cached openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6001047Z Downloading supabase-2.34.1-py3-none-any.whl (17 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6056423Z Downloading postgrest-2.34.1-py3-none-any.whl (25 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6110676Z Downloading realtime-2.34.1-py3-none-any.whl (27 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6163500Z Downloading storage3-2.34.1-py3-none-any.whl (28 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6216465Z Downloading supabase_auth-2.34.1-py3-none-any.whl (50 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6266832Z Downloading supabase_functions-2.34.1-py3-none-any.whl (10 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6297901Z Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6312782Z Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6328557Z Using cached h2-4.4.1-py3-none-any.whl (62 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6343542Z Using cached hpack-4.2.0-py3-none-any.whl (34 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6358186Z Using cached hyperframe-6.1.0-py3-none-any.whl (13 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6395638Z Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6470511Z Downloading pydantic_core-2.50.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6566678Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 286.6 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6584084Z Using cached websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (182 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6600128Z Using cached python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6615560Z Using cached dvc-3.67.1-py3-none-any.whl (470 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6631789Z Using cached dpath-2.2.0-py3-none-any.whl (17 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6646902Z Using cached dvc_data-3.18.3-py3-none-any.whl (79 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6683738Z Downloading dvc_objects-5.3.1-py3-none-any.whl (33 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6718338Z Using cached dvc_render-1.0.2-py3-none-any.whl (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6733872Z Using cached dvc_s3-3.3.0-py3-none-any.whl (14 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6749477Z Using cached dvc_studio_client-0.23.0-py3-none-any.whl (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6764322Z Using cached dvc_task-0.40.2-py3-none-any.whl (21 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6833892Z Downloading celery-5.7.0-py3-none-any.whl (519 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6882891Z Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.6966698Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7008928Z Using cached flatten_dict-0.5.0-py3-none-any.whl (9.9 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7024808Z Using cached flufl_lock-9.2.0-py3-none-any.whl (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7040869Z Using cached grandalf-0.8-py3-none-any.whl (41 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7057381Z Using cached gto-1.10.1-py3-none-any.whl (45 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7099960Z Downloading kombu-5.7.0-py3-none-any.whl (266 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7140212Z Using cached vine-5.1.0-py3-none-any.whl (9.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7156050Z Using cached orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7171167Z Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7206705Z Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7240399Z Using cached scmrepo-3.6.2-py3-none-any.whl (74 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7255461Z Using cached asyncssh-2.24.1-py3-none-any.whl (382 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7298009Z Downloading dulwich-1.2.21-cp311-cp311-manylinux_2_28_x86_64.whl (1.5 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7383261Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 230.0 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7400834Z Using cached shtab-1.13.0-py3-none-any.whl (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7417371Z Using cached sqltrie-0.11.3-py3-none-any.whl (17 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7432896Z Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7448590Z Using cached scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7538254Z Downloading mlflow-3.18.0-py3-none-any.whl (12.6 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.7984884Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 293.2 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8027491Z Downloading mlflow_skinny-3.18.0-py3-none-any.whl (4.4 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8177452Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 336.6 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8290465Z Downloading mlflow_tracing-3.18.0-py3-none-any.whl (2.1 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8382884Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 275.0 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8399506Z Using cached aiohttp-3.14.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8421638Z Using cached alembic-1.20.1-py3-none-any.whl (270 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8457680Z Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8512196Z Downloading cachetools-7.3.0-py3-none-any.whl (19 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8545170Z Using cached cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8560901Z Using cached cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8618229Z Downloading databricks_sdk-0.162.0-py3-none-any.whl (1.2 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8712134Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 175.3 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8728025Z Using cached docker-7.2.0-py3-none-any.whl (148 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8764769Z Downloading fastapi-0.162.1-py3-none-any.whl (150 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8801910Z Using cached flask-3.1.3-py3-none-any.whl (103 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8817181Z Using cached flask_cors-6.0.5-py3-none-any.whl (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8832059Z Using cached gitpython-3.2.1-py3-none-any.whl (231 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8848152Z Using cached gitdb-4.0.12-py3-none-any.whl (62 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8890280Z Downloading google_auth-2.62.1-py3-none-any.whl (267 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8933724Z Using cached graphene-3.4.3-py2.py3-none-any.whl (114 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.8972146Z Downloading graphql_core-3.2.14-py3-none-any.whl (279 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9011964Z Using cached graphql_relay-3.2.0-py3-none-any.whl (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9027621Z Using cached gunicorn-26.2.0-py3-none-any.whl (228 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9066313Z Downloading huey-3.5.4-py3-none-any.whl (135 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9124594Z Downloading importlib_metadata-10.1.0-py3-none-any.whl (32 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9158927Z Using cached matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9209767Z Using cached multidict-7.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (510 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9226593Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9262695Z Downloading python_multipart-0.0.33-py3-none-any.whl (32 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9294899Z Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9444114Z Using cached skops-0.16.0-py3-none-any.whl (148 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9461042Z Using cached smmap-5.0.3-py3-none-any.whl (24 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9502362Z Downloading sqlalchemy-2.1.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9654044Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 349.5 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9700913Z Downloading sqlparse-0.6.1-py3-none-any.whl (51 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9739166Z Using cached starlette-1.10.0-py3-none-any.whl (80 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9756770Z Using cached uvicorn-0.54.0-py3-none-any.whl (87 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9773016Z Using cached yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9789169Z Using cached psycopg2_binary-2.9.13-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9824757Z Using cached aiobotocore-3.10.0-py3-none-any.whl (102 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9841492Z Using cached aioitertools-0.13.0-py3-none-any.whl (24 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9857683Z Using cached botocore-1.43.117-py3-none-any.whl (16.1 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9936252Z Using cached jmespath-1.1.0-py3-none-any.whl (20 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:33.9974179Z Downloading wrapt-2.5.2-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (240 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0015941Z Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0031461Z Using cached aiohttp_retry-2.9.1-py3-none-any.whl (10.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0047177Z Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0083744Z Downloading amqp-5.4.2-py3-none-any.whl (51 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0120697Z Using cached annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0136462Z Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0151605Z Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0189886Z Downloading billiard-4.3.2-py3-none-any.whl (90 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0230480Z Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0246511Z Using cached certifi-2026.10.23-py3-none-any.whl (135 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0263018Z Using cached cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0279249Z Using cached click_didyoumean-0.3.1-py3-none-any.whl (3.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0294390Z Using cached click_plugins-1.1.1.2-py2.py3-none-any.whl (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0309503Z Using cached click_repl-0.4.1-py3-none-any.whl (14 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0324324Z Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0339724Z Using cached configobj-5.0.9-py2.py3-none-any.whl (35 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0354674Z Using cached contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0370564Z Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0385423Z Using cached deprecation-2.1.0-py2.py3-none-any.whl (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0399826Z Using cached dictdiffer-0.10.0-py3-none-any.whl (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0414385Z Using cached diskcache-5.6.3-py3-none-any.whl (45 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0428973Z Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0443391Z Using cached dvc_http-2.32.0-py3-none-any.whl (12 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0458622Z Using cached fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0495899Z Using cached frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0511568Z Using cached funcy-2.1-py3-none-any.whl (29 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0526589Z Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0541514Z Using cached hydra_core-1.3.8-py3-none-any.whl (168 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0556980Z Using cached omegaconf-2.3.1-py3-none-any.whl (79 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0573079Z Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0588235Z Using cached iterative_telemetry-0.0.10-py3-none-any.whl (10 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0603104Z Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0617931Z Using cached joblib-1.6.0-py3-none-any.whl (306 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0634012Z Using cached kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0653839Z Using cached narwhals-2.28.0-py3-none-any.whl (490 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0670772Z Using cached pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0712421Z Using cached prettytable-3.18.0-py3-none-any.whl (37 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0727434Z Using cached prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0744160Z Using cached propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0760501Z Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0775609Z Using cached pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0791411Z Using cached pyasn1-0.6.5-py3-none-any.whl (84 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0806727Z Using cached pydantic_settings-2.16.2-py3-none-any.whl (81 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0821501Z Using cached pydot-4.0.1-py3-none-any.whl (37 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.0872470Z Downloading pygit2-1.21.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (4.9 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1075368Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 264.6 MB/s  0:00:00
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1092247Z Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1113100Z Using cached pygtrie-2.6.2-py3-none-any.whl (33 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1129402Z Using cached pyjwt-2.15.1-py3-none-any.whl (33 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1145292Z Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1161540Z Using cached rich-15.0.0-py3-none-any.whl (310 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1178177Z Using cached markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1193580Z Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1208841Z Using cached ruamel_yaml-0.19.1-py3-none-any.whl (118 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1224489Z Using cached s3fs-2026.9.0-py3-none-any.whl (33 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1239917Z Using cached semver-3.1.0-py3-none-any.whl (18 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1254594Z Using cached shortuuid-1.0.13-py3-none-any.whl (10 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1269452Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1284134Z Using cached tabulate-0.10.0-py3-none-any.whl (39 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1319851Z Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1360759Z Using cached tomlkit-0.15.2-py3-none-any.whl (52 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1394391Z Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1424818Z Using cached voluptuous-0.16.0-py3-none-any.whl (31 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1440224Z Using cached wcwidth-0.9.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (785 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1458319Z Using cached werkzeug-3.1.9-py3-none-any.whl (228 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1493825Z Downloading zc_lockfile-4.1-py3-none-any.whl (9.2 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1527269Z Using cached zipp-4.1.2-py3-none-any.whl (10 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1542336Z Using cached appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1557439Z Using cached atpublic-9.0.0-py3-none-any.whl (11 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1572387Z Using cached entrypoints-0.4.2-py3-none-any.whl (5.3 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1587033Z Using cached et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1601737Z Using cached h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl (5.0 MB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1634330Z Using cached mako-1.4.3-py3-none-any.whl (80 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1649396Z Using cached pycparser-3.12-py3-none-any.whl (62 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1688322Z Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1732406Z Using cached tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:34.1748575Z Using cached tzlocal-5.4.5-py3-none-any.whl (18 kB)
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:08:35.2467678Z Installing collected packages: pytz, huey, funcy, appdirs, antlr4-python3-runtime, zipp, zc.lockfile, wrapt, werkzeug, websockets, wcwidth, voluptuous, vine, urllib3, tzlocal, tzdata, typing-inspection, tqdm, tomlkit, threadpoolctl, tabulate, sqlparse, sqlalchemy, smmap, six, shtab, shortuuid, semver, ruamel.yaml, pyyaml, python-multipart, python-dotenv, pyparsing, pyjwt, pygtrie, pygments, pydantic-core, pycparser, pyasn1, pyarrow, psycopg2-binary, psutil, protobuf, propcache, pluggy, platformdirs, pillow, pathspec, packaging, orjson, opentelemetry-api, numpy, narwhals, multidict, mdurl, Mako, kiwisolver, jmespath, itsdangerous, iniconfig, idna, hyperframe, hpack, h11, gunicorn, graphql-core, frozenlist, fonttools, flatten-dict, et-xmlfile, entrypoints, dvc-render, dvc-objects, dpath, distro, diskcache, dictdiffer, cycler, configobj, colorama, cloudpickle, click, charset_normalizer, certifi, cachetools, blinker, billiard, attrs, atpublic, annotated-types, annotated-doc, aioitertools, aiohappyeyeballs, yarl, uvicorn, sqltrie, scipy, requests, python-dateutil, pytest, pydot, pydantic, pyasn1-modules, prompt_toolkit, prettytable, opentelemetry-semantic-conventions, opentelemetry-proto, opentelemetry-exporter-http-transport, openpyxl, omegaconf, markdown-it-py, joblib, importlib_metadata, httpcore, h5py, h2, graphql-relay, grandalf, googleapis-common-protos, gitdb, flufl.lock, Flask, dulwich, deprecation, contourpy, click-plugins, click-didyoumean, cffi, anyio, amqp, alembic, aiosignal, starlette, scikit-learn, rich, pygit2, pydantic-settings, pandas, opentelemetry-sdk, opentelemetry-exporter-otlp-proto-common, matplotlib, kombu, iterative-telemetry, hydra-core, httpx, graphene, gitpython, Flask-CORS, dvc-studio-client, dvc-data, docker, cryptography, click-repl, botocore, aiohttp, skops, pvlib, opentelemetry-exporter-otlp-common, google-auth, fastapi, celery, asyncssh, aiohttp-retry, aiobotocore, supabase-functions, supabase-auth, storage3, scmrepo, s3fs, realtime, postgrest, opentelemetry-exporter-otlp-proto-http, dvc-task, dvc-http, databricks-sdk, supabase, mlflow-tracing, mlflow-skinny, gto, mlflow, dvc, dvc-s3
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:09:12.1394675Z 
+pipeline	Install dependencies (CPU torch)	2026-11-07T12:09:12.1476839Z Successfully installed Flask-3.1.3 Flask-CORS-6.0.5 Mako-1.4.3 aiobotocore-3.10.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiohttp-retry-2.9.1 aioitertools-0.13.0 aiosignal-1.4.0 alembic-1.20.1 amqp-5.4.2 annotated-doc-0.0.5 annotated-types-0.8.0 antlr4-python3-runtime-4.9.3 anyio-4.16.0 appdirs-1.4.4 asyncssh-2.24.1 atpublic-9.0.0 attrs-26.1.0 billiard-4.3.2 blinker-1.9.0 botocore-1.43.117 cachetools-7.3.0 celery-5.7.0 certifi-2026.10.23 cffi-2.1.1 charset_normalizer-3.5.2 click-8.5.1 click-didyoumean-0.3.1 click-plugins-1.1.1.2 click-repl-0.4.1 cloudpickle-3.1.2 colorama-0.4.6 configobj-5.0.9 contourpy-1.3.3 cryptography-50.0.2 cycler-0.12.1 databricks-sdk-0.162.0 deprecation-2.1.0 dictdiffer-0.10.0 diskcache-5.6.3 distro-1.9.0 docker-7.2.0 dpath-2.2.0 dulwich-1.2.21 dvc-3.67.1 dvc-data-3.18.3 dvc-http-2.32.0 dvc-objects-5.3.1 dvc-render-1.0.2 dvc-s3-3.3.0 dvc-studio-client-0.23.0 dvc-task-0.40.2 entrypoints-0.4.2 et-xmlfile-2.0.0 fastapi-0.162.1 flatten-dict-0.5.0 flufl.lock-9.2.0 fonttools-4.68.0 frozenlist-1.8.0 funcy-2.1 gitdb-4.0.12 gitpython-3.2.1 google-auth-2.62.1 googleapis-common-protos-1.76.0 grandalf-0.8 graphene-3.4.3 graphql-core-3.2.14 graphql-relay-3.2.0 gto-1.10.1 gunicorn-26.2.0 h11-0.16.0 h2-4.4.1 h5py-3.16.0 hpack-4.2.0 httpcore-1.0.9 httpx-0.28.1 huey-3.5.4 hydra-core-1.3.8 hyperframe-6.1.0 idna-3.20 importlib_metadata-10.1.0 iniconfig-2.3.1 iterative-telemetry-0.0.10 itsdangerous-2.2.0 jmespath-1.1.0 joblib-1.6.0 kiwisolver-1.5.1 kombu-5.7.0 markdown-it-py-4.2.0 matplotlib-3.11.2 mdurl-0.1.2 mlflow-3.18.0 mlflow-skinny-3.18.0 mlflow-tracing-3.18.0 multidict-7.2.1 narwhals-2.28.0 numpy-1.26.4 omegaconf-2.3.1 openpyxl-3.1.5 opentelemetry-api-1.45.1 opentelemetry-exporter-http-transport-0.66b1 opentelemetry-exporter-otlp-common-0.66b1 opentelemetry-exporter-otlp-proto-common-1.45.1 opentelemetry-exporter-otlp-proto-http-1.45.1 opentelemetry-proto-1.45.1 opentelemetry-sdk-1.45.1 opentelemetry-semantic-conventions-0.66b1 orjson-3.13.0 packaging-26.3 pandas-3.0.6 pathspec-1.1.1 pillow-13.0.0 platformdirs-4.14.5 pluggy-1.7.0 postgrest-2.34.1 prettytable-3.18.0 prompt_toolkit-3.0.53 propcache-0.5.4 protobuf-7.36.2 psutil-7.2.2 psycopg2-binary-2.9.13 pvlib-0.16.1 pyarrow-26.0.1 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycparser-3.12 pydantic-2.14.3 pydantic-core-2.50.4 pydantic-settings-2.16.2 pydot-4.0.1 pygit2-1.21.0 pygments-2.21.0 pygtrie-2.6.2 pyjwt-2.15.1 pyparsing-3.3.3 pytest-9.2.0 python-dateutil-2.9.0.post0 python-dotenv-1.2.4 python-multipart-0.0.33 pytz-2026.6 pyyaml-6.0.3 realtime-2.34.1 requests-2.34.2 rich-15.0.0 ruamel.yaml-0.19.1 s3fs-2026.9.0 scikit-learn-1.9.1 scipy-1.17.1 scmrepo-3.6.2 semver-3.1.0 shortuuid-1.0.13 shtab-1.13.0 six-1.17.0 skops-0.16.0 smmap-5.0.3 sqlalchemy-2.1.8 sqlparse-0.6.1 sqltrie-0.11.3 starlette-1.10.0 storage3-2.34.1 supabase-2.34.1 supabase-auth-2.34.1 supabase-functions-2.34.1 tabulate-0.10.0 threadpoolctl-3.8.0 tomlkit-0.15.2 tqdm-4.70.1 typing-inspection-0.4.5 tzdata-2026.6 tzlocal-5.4.5 urllib3-2.8.0 uvicorn-0.54.0 vine-5.1.0 voluptuous-0.16.0 wcwidth-0.9.4 websockets-15.0.1 werkzeug-3.1.9 wrapt-2.5.2 yarl-1.25.1 zc.lockfile-4.1 zipp-4.1.2
+pipeline	Check secrets	﻿2026-11-07T12:09:13.1048665Z ##[group]Run test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL empty"; exit 1; }
+pipeline	Check secrets	2026-11-07T12:09:13.1049723Z ^[[36;1mtest -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL empty"; exit 1; }^[[0m
+pipeline	Check secrets	2026-11-07T12:09:13.1050431Z ^[[36;1mtest -n "$SUPABASE_SERVICE_ROLE_KEY" || { echo "::error::SUPABASE_SERVICE_ROLE_KEY empty"; exit 1; }^[[0m
+pipeline	Check secrets	2026-11-07T12:09:13.1051144Z ^[[36;1mtest -n "$AWS_SECRET_ACCESS_KEY" || { echo "::error::S3 secrets empty"; exit 1; }^[[0m
+pipeline	Check secrets	2026-11-07T12:09:13.1114317Z shell: /usr/bin/bash -e {0}
+pipeline	Check secrets	2026-11-07T12:09:13.1114650Z env:
+pipeline	Check secrets	2026-11-07T12:09:13.1115797Z   SUPABASE_URL: ***
+pipeline	Check secrets	2026-11-07T12:09:13.1117978Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Check secrets	2026-11-07T12:09:13.1118550Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Check secrets	2026-11-07T12:09:13.1119217Z   SUPABASE_BUCKET: processed_data
+pipeline	Check secrets	2026-11-07T12:09:13.1119536Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Check secrets	2026-11-07T12:09:13.1120354Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Check secrets	2026-11-07T12:09:13.1121021Z   APPROVE: 0
+pipeline	Check secrets	2026-11-07T12:09:13.1121352Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Check secrets	2026-11-07T12:09:13.1122264Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Check secrets	2026-11-07T12:09:13.1122848Z   S3_ENDPOINT_URL: ***
+pipeline	Check secrets	2026-11-07T12:09:13.1123186Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Check secrets	2026-11-07T12:09:13.1123879Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Check secrets	2026-11-07T12:09:13.1124372Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Check secrets	2026-11-07T12:09:13.1124821Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Check secrets	2026-11-07T12:09:13.1125567Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Check secrets	2026-11-07T12:09:13.1126033Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Check secrets	2026-11-07T12:09:13.1126412Z ##[endgroup]
+pipeline	Configure DVC remote (local-only creds)	﻿2026-11-07T12:09:13.1505870Z ##[group]Run dvc remote modify --local origin endpointurl "$S3_ENDPOINT_URL"
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1507217Z ^[[36;1mdvc remote modify --local origin endpointurl "$S3_ENDPOINT_URL"^[[0m
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1508432Z ^[[36;1mdvc remote modify --local origin access_key_id "$AWS_ACCESS_KEY_ID"^[[0m
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1509398Z ^[[36;1mdvc remote modify --local origin secret_access_key "$AWS_SECRET_ACCESS_KEY"^[[0m
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1579310Z shell: /usr/bin/bash -e {0}
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1579821Z env:
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1580842Z   SUPABASE_URL: ***
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1583136Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1583491Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1583828Z   SUPABASE_BUCKET: processed_data
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1584117Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1584463Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1584797Z   APPROVE: 0
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1585360Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1585816Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1586346Z   S3_ENDPOINT_URL: ***
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1586671Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1587150Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1587618Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1588460Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1588875Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1589295Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Configure DVC remote (local-only creds)	2026-11-07T12:09:13.1589853Z ##[endgroup]
+pipeline	Run DVC pipeline	﻿2026-11-07T12:09:14.8105376Z ##[group]Run dvc repro
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8105738Z ^[[36;1mdvc repro^[[0m
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8156215Z shell: /usr/bin/bash -e {0}
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8156531Z env:
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8157013Z   SUPABASE_URL: ***
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8158664Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8159012Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8159372Z   SUPABASE_BUCKET: processed_data
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8159699Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8160060Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8160422Z   APPROVE: 0
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8160728Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8161199Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8161704Z   S3_ENDPOINT_URL: ***
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8162045Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8162895Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8163547Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8179131Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8179630Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8180094Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Run DVC pipeline	2026-11-07T12:09:14.8180466Z ##[endgroup]
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.4039447Z Running stage 'preprocess':
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.4040706Z > python src/preprocess_new_data.py
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.7475768Z preprocess OK — train=1000 new=50 cols=40
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.8804236Z Updating lock file 'dvc.lock'
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.8936874Z 
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.9157230Z Running stage 'train':
+pipeline	Run DVC pipeline	2026-11-07T12:09:15.9159442Z > MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/retrain.py && MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python setup/snapshot_train.py
+pipeline	Run DVC pipeline	2026-11-07T12:09:16.3046993Z 2026-11-07 12:09:16 [INFO] jobs.retrain_pipeline.pipeline: === [Step 1/7] Downloading monthly CSVs from Supabase ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:16.3068568Z 2026-11-07 12:09:16 [INFO] jobs.retrain_tools.data_loader: Listing files under bucket prefix 'processed/' …
+pipeline	Run DVC pipeline	2026-11-07T12:09:17.3798080Z 2026-11-07 12:09:17 [INFO] httpx: HTTP Request: POST ***/storage/v1/object/list/processed_data "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:17.3802906Z 2026-11-07 12:09:17 [INFO] jobs.retrain_tools.data_loader: Found 6 monthly CSV files (2024-01 → 2024-06)
+pipeline	Run DVC pipeline	2026-11-07T12:09:17.5900376Z 2026-11-07 12:09:17 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-01.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:17.7354604Z 2026-11-07 12:09:17 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-02.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:17.9945485Z 2026-11-07 12:09:17 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-03.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.2283250Z 2026-11-07 12:09:18 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-04.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.4524410Z 2026-11-07 12:09:18 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-05.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.6226553Z 2026-11-07 12:09:18 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-06.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.6852780Z 2026-11-07 12:09:18 [INFO] jobs.retrain_tools.data_loader: Concatenating 6 monthly DataFrames …
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.6926150Z 2026-11-07 12:09:18 [INFO] jobs.retrain_tools.data_loader: Raw dataset: 55310 rows × 40 cols
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7289108Z 2026-11-07 12:09:18 [INFO] jobs.retrain_tools.data_loader: Row filter: kept 55310 / 55310 rows (removed 0 nighttime/invalid)
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7383383Z 2026-11-07 12:09:18 [INFO] jobs.retrain_pipeline.pipeline: Loaded dataset: 55310 rows × 40 cols  |  arrays: 31
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7384466Z 2026-11-07 12:09:18 [INFO] jobs.retrain_pipeline.pipeline: === [Step 2/7] Computing chronological 70/15/15 split ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7481104Z /home/runner/work/AI-engineering-as3/AI-engineering-as3/jobs/retrain_tools/splitter.py:67: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7482750Z   month_keys = ts.dt.to_period("M").astype(str)
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7712275Z 2026-11-07 12:09:18 [INFO] jobs.retrain_tools.splitter: Split: Train 2024-01→2024-04 (4 mo, 36027 rows) | Val 2024-05→2024-05 (1 mo, 10013 rows) | Test 2024-06→2024-06 (1 mo, 9270 rows)
+pipeline	Run DVC pipeline	2026-11-07T12:09:18.7716574Z 2026-11-07 12:09:18 [INFO] jobs.retrain_pipeline.pipeline: === [Step 3/7] Building window datasets and fitting preprocessor ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:19.7657468Z 2026-11-07 12:09:19 [INFO] jobs.retrain_tools.lstm_model: Building training windows (window_size=6) …
+pipeline	Run DVC pipeline	2026-11-07T12:09:21.9268576Z 2026-11-07 12:09:21 [INFO] jobs.retrain_tools.lstm_model: Building validation windows …
+pipeline	Run DVC pipeline	2026-11-07T12:09:22.5796538Z 2026-11-07 12:09:22 [INFO] jobs.retrain_tools.lstm_model: Building test windows …
+pipeline	Run DVC pipeline	2026-11-07T12:09:23.2860860Z 2026-11-07 12:09:23 [INFO] jobs.retrain_tools.lstm_model: Windows: train=18479 | val=4681 | test=4620
+pipeline	Run DVC pipeline	2026-11-07T12:09:23.5310067Z 2026-11-07 12:09:23 [INFO] jobs.retrain_pipeline.pipeline: Windows: train=18479  val=4681  test=4620
+pipeline	Run DVC pipeline	2026-11-07T12:09:23.5311311Z 2026-11-07 12:09:23 [INFO] jobs.retrain_pipeline.pipeline: === [Step 4/7] Training LSTM model ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:24.4942317Z 2026-11-07 12:09:24 [INFO] jobs.retrain_tools.lstm_model: Training device: cpu
+pipeline	Run DVC pipeline	2026-11-07T12:09:27.2257697Z 2026-11-07 12:09:27 [INFO] jobs.retrain_tools.lstm_model: Epoch   1/50  train_loss=0.05242  val_loss=0.00834  best=0.00834
+pipeline	Run DVC pipeline	2026-11-07T12:09:35.0439121Z 2026-11-07 12:09:35 [INFO] jobs.retrain_tools.lstm_model: Epoch   5/50  train_loss=0.01042  val_loss=0.00603  best=0.00603
+pipeline	Run DVC pipeline	2026-11-07T12:09:44.2626835Z 2026-11-07 12:09:44 [INFO] jobs.retrain_tools.lstm_model: Epoch  10/50  train_loss=0.00840  val_loss=0.00623  best=0.00603
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.7021320Z 2026-11-07 12:09:53 [INFO] jobs.retrain_tools.lstm_model: Epoch  15/50  train_loss=0.00673  val_loss=0.00625  best=0.00603
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.7023213Z 2026-11-07 12:09:53 [INFO] jobs.retrain_tools.lstm_model: Early stopping at epoch 15 (no improvement for 10 epochs)
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.7025649Z 2026-11-07 12:09:53 [INFO] jobs.retrain_tools.lstm_model: Training complete — best epoch: 5, best val_loss: 0.00603
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.7027228Z 2026-11-07 12:09:53 [INFO] jobs.retrain_pipeline.pipeline: === [Step 5/7] Evaluating on test split ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.8319056Z 2026-11-07 12:09:53 [INFO] jobs.retrain_tools.evaluation: VAL_RMSE=0.07766  MAE=0.06153  R²=0.8929  (n=4681)
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.9620694Z 2026-11-07 12:09:53 [INFO] jobs.retrain_tools.evaluation: TEST_RMSE=0.09017  MAE=0.07468  R²=0.8569  (n=4620)
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.9622475Z 2026-11-07 12:09:53 [INFO] jobs.retrain_pipeline.pipeline: Challenger test RMSE: 0.09017
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.9623725Z 2026-11-07 12:09:53 [INFO] jobs.retrain_pipeline.pipeline: === [Step 6/7] Logging run to MLflow ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:53.9643131Z 2026-11-07 12:09:53 [INFO] jobs.retrain_tools.lstm_model: Checkpoint saved: checkpoint.pt (0.85 MB)
+pipeline	Run DVC pipeline	2026-11-07T12:09:55.9912987Z 2026-11-07 12:09:55 [INFO] jobs.retrain_tools.mlflow_helpers: MLflow run logged: run_id=ea902c44e35149aba33923925c3447f4  model_version=5
+pipeline	Run DVC pipeline	2026-11-07T12:09:55.9971329Z 2026-11-07 12:09:55 [INFO] jobs.retrain_pipeline.pipeline: MLflow run: run_id=ea902c44e35149aba33923925c3447f4  model_version=5
+pipeline	Run DVC pipeline	2026-11-07T12:09:55.9972699Z 2026-11-07 12:09:55 [INFO] jobs.retrain_pipeline.pipeline: === [Step 7/7] Champion comparison & notification ===
+pipeline	Run DVC pipeline	2026-11-07T12:09:56.0088157Z 2026-11-07 12:09:56 [INFO] jobs.retrain_tools.mlflow_helpers: Champion: model version=2  run_id=e7bb491e09d340c9a84c85a5a50e2c42  test_rmse=0.10157
+pipeline	Run DVC pipeline	2026-11-07T12:09:56.0166336Z 2026-11-07 12:09:56 [INFO] jobs.retrain_tools.mlflow_helpers: Champion: model version=2  run_id=e7bb491e09d340c9a84c85a5a50e2c42  test_rmse=0.10157
+pipeline	Run DVC pipeline	2026-11-07T12:09:56.0168869Z 2026-11-07 12:09:56 [INFO] jobs.retrain_tools.mlflow_helpers: Challenger RMSE 0.09017 < Champion RMSE 0.10157 — assigning 'candidate'.
+pipeline	Run DVC pipeline	2026-11-07T12:09:56.0251948Z 2026-11-07 12:09:56 [INFO] jobs.retrain_tools.mlflow_helpers: Alias 'candidate' assigned to pv-lstm-fleet version 5
+pipeline	Run DVC pipeline	2026-11-07T12:09:56.0253905Z 2026-11-07 12:09:56 [INFO] jobs.retrain_pipeline.pipeline: Uploading model checkpoint to Supabase artifacts/ …
+pipeline	Run DVC pipeline	2026-11-07T12:09:56.0369843Z 2026-11-07 12:09:56 [INFO] jobs.retrain_tools.artifact_store: Uploading model artifact to bucket 'processed_data' / artifacts/ea902c44e35149aba33923925c3447f4/checkpoint.pt (0.85 MB) …
+pipeline	Run DVC pipeline	2026-11-07T12:09:57.7144194Z 2026-11-07 12:09:57 [INFO] httpx: HTTP Request: POST ***/storage/v1/object/processed_data/artifacts/ea902c44e35149aba33923925c3447f4/checkpoint.pt "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:09:57.7149737Z 2026-11-07 12:09:57 [INFO] jobs.retrain_tools.artifact_store: ✅ Model artifact uploaded: artifacts/ea902c44e35149aba33923925c3447f4/checkpoint.pt
+pipeline	Run DVC pipeline	2026-11-07T12:09:57.7180415Z 2026-11-07 12:09:57 [WARNING] jobs.retrain_tools.discord_notify: DISCORD_WEBHOOK_URL not set — skipping Discord notification.
+pipeline	Run DVC pipeline	2026-11-07T12:09:57.7182350Z 2026-11-07 12:09:57 [INFO] jobs.retrain_pipeline.pipeline: === Retrain pipeline complete ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:04.1658331Z checkpoint <- v5/checkpoint.pt (848482 B)
+pipeline	Run DVC pipeline	2026-11-07T12:10:04.1659528Z train snapshot OK — v5 rmse=0.09016687183207889
+pipeline	Run DVC pipeline	2026-11-07T12:10:04.8059826Z Updating lock file 'dvc.lock'
+pipeline	Run DVC pipeline	2026-11-07T12:10:04.8194815Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:04.8303839Z Running stage 'promote':
+pipeline	Run DVC pipeline	2026-11-07T12:10:04.8306133Z > MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python setup/promote_champion.py
+pipeline	Run DVC pipeline	2026-11-07T12:10:06.8500810Z PENDING — champion=v2 (set APPROVE=1 to promote v5)
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.4755430Z Updating lock file 'dvc.lock'
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.4891532Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.5034188Z Running stage 'evaluate':
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.5036740Z > MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python src/evaluate.py --dry-run && MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db python setup/gen_perf_report.py
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.5380533Z 2026-11-07 12:10:07 [INFO] __main__: 🔶 DRY RUN — skipping MLflow logging and Discord notification.
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.8811774Z 2026-11-07 12:10:07 [INFO] jobs.evaluate_pipeline.pipeline: === [Step 1/5] Loading 2 most-recent monthly CSVs (last 500 rows) ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:07.8816563Z 2026-11-07 12:10:07 [INFO] jobs.evaluate_tools.data_loader: Listing files under bucket prefix 'processed/' …
+pipeline	Run DVC pipeline	2026-11-07T12:10:08.8788628Z 2026-11-07 12:10:08 [INFO] httpx: HTTP Request: POST ***/storage/v1/object/list/processed_data "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:10:08.8792897Z 2026-11-07 12:10:08 [INFO] jobs.evaluate_tools.data_loader: Using 2 most-recent monthly file(s): 2024-05, 2024-06
+pipeline	Run DVC pipeline	2026-11-07T12:10:08.9501448Z 2026-11-07 12:10:08 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-05.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:10:09.0772122Z 2026-11-07 12:10:09 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/processed/2024-06.csv "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:10:09.1458697Z 2026-11-07 12:10:09 [INFO] jobs.evaluate_tools.data_loader: Raw dataset: 19283 rows × 40 cols
+pipeline	Run DVC pipeline	2026-11-07T12:10:09.1681956Z 2026-11-07 12:10:09 [INFO] jobs.evaluate_tools.data_loader: Row filter: kept 19283 / 19283 rows (removed 0 nighttime/invalid)
+pipeline	Run DVC pipeline	2026-11-07T12:10:09.1743722Z 2026-11-07 12:10:09 [INFO] jobs.evaluate_tools.data_loader: Evaluation window: 500 rows  |  2024-06-29 02:00:00+00:00 → 2024-06-30 08:00:00+00:00  |  arrays: 31
+pipeline	Run DVC pipeline	2026-11-07T12:10:09.1757577Z 2026-11-07 12:10:09 [INFO] jobs.evaluate_pipeline.pipeline: Evaluation dataset: 500 rows × 40 cols  |  arrays: 31
+pipeline	Run DVC pipeline	2026-11-07T12:10:09.1769270Z 2026-11-07 12:10:09 [INFO] jobs.evaluate_pipeline.pipeline: === [Step 2/5] Loading champion model from MLflow + Supabase ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:10.7300570Z 2026-11-07 12:10:10 [INFO] jobs.evaluate_tools.model_loader: Champion: model='pv-lstm-fleet'  version=2  run_id=e7bb491e09d340c9a84c85a5a50e2c42
+pipeline	Run DVC pipeline	2026-11-07T12:10:10.7425663Z 2026-11-07 12:10:10 [INFO] jobs.evaluate_tools.model_loader: Champion training-time test_rmse: 0.10157
+pipeline	Run DVC pipeline	2026-11-07T12:10:10.7428245Z 2026-11-07 12:10:10 [INFO] jobs.evaluate_tools.model_loader: Downloading checkpoint from Supabase: artifacts/e7bb491e09d340c9a84c85a5a50e2c42/checkpoint.pt …
+pipeline	Run DVC pipeline	2026-11-07T12:10:10.8666619Z 2026-11-07 12:10:10 [INFO] httpx: HTTP Request: GET ***/storage/v1/object/processed_data/artifacts/e7bb491e09d340c9a84c85a5a50e2c42/checkpoint.pt "HTTP/2 200 OK"
+pipeline	Run DVC pipeline	2026-11-07T12:10:10.8794192Z 2026-11-07 12:10:10 [INFO] jobs.evaluate_tools.model_loader: Downloaded checkpoint (0.85 MB). Loading with torch …
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.8488677Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.model_loader: Champion checkpoint loaded. Features: 23  |  window_size: 6  |  model: {'input_size': 23, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.2}
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.8546432Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_pipeline.pipeline: === [Step 3/5] Running inference on evaluation window ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.8550370Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.inference: Building evaluation windows (window_size=6, features=23) …
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9051937Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.inference: Built 190 evaluation windows.
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9240501Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.inference: Inference complete — pred range: [0.0000, 0.2634]
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9242117Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_pipeline.pipeline: === [Step 4/5] Computing live metrics ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9243579Z 2026-11-07 12:10:12 [INFO] jobs.retrain_tools.evaluation: LIVE_RMSE=0.08724  MAE=0.07651  R²=0.1285  (n=190)
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9244857Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_pipeline.pipeline: === [Step 5/5] Drift decision & reporting ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9246936Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.drift: Drift check: live_rmse=0.08724  champion_test_rmse=0.10157  ratio=0.859  threshold=×1.15
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9249326Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.drift: ✅  RETRAIN NOT NEEDED — Live RMSE 0.08724 is within acceptable range (+-14.1% vs champion 0.10157, ratio 0.859 ≤ threshold ×1.15).
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9250545Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9251001Z ============================================================
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9251561Z   PV-LSTM Champion Evaluation
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9252002Z ============================================================
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9252604Z   Champion version : v2
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9253374Z   Eval window      : 2024-06-29 02:00:00+00:00  →  2024-06-30 08:00:00+00:00
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9254209Z   Rows / Windows   : 500 rows  |  190 windows
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9254710Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9257082Z   Live RMSE : 0.08724
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9257939Z   Live MAE  : 0.07651
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9258528Z   Live R²   : 0.1285
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9258954Z   Champ RMSE: 0.10157  (train-time test)
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9259429Z   Drift ratio: 0.859
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9259656Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9259864Z   ✅  RETRAIN NOT NEEDED
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9260817Z   Reason: Live RMSE 0.08724 is within acceptable range (+-14.1% vs champion 0.10157, ratio 0.859 ≤ threshold ×1.15).
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9261743Z ============================================================
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9262087Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9262745Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_pipeline.pipeline: DRY RUN — skipping MLflow logging and Discord.
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9263998Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.discord_notify: DRY RUN — Discord payload (not sent):
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9264763Z {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9265313Z   "username": "PV Forecasting Bot",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9265975Z   "avatar_url": "https://cdn-icons-png.flaticon.com/512/1163/1163621.png",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9266642Z   "embeds": [
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9267430Z     {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9267872Z       "title": "\u2705  PV-LSTM | Evaluation \u2014 Champion OK",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9268433Z       "color": 5763719,
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9268827Z       "fields": [
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9269169Z         {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9269548Z           "name": "\ud83d\udcc5 Evaluation Window",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9270714Z           "value": "**Rows:**    500 filtered  (190 windows)\n**From:**  `2024-06-29 02:00:00+00:00`\n**To:**    `2024-06-30 08:00:00+00:00`",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9271599Z           "inline": false
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9271978Z         },
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9272320Z         {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9272666Z           "name": "\ud83d\udcc8 Live Metrics",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9273284Z           "value": "RMSE: `0.08724`\nMAE:  `0.07651`\nR\u00b2:   `0.1285`",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9273872Z           "inline": true
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9274244Z         },
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9274572Z         {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9274933Z           "name": "\ud83c\udfc6 RMSE Comparison",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9275954Z           "value": "Live:     `0.08724`\nChampion: `0.10157` (train-time test)\nDrift:    `-14.1%` (ratio `0.859`)",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9276760Z           "inline": true
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9277130Z         },
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9277441Z         {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9277805Z           "name": "\ud83d\udd16 Decision",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9279133Z           "value": "\u2705 **Champion model is performing within acceptable range.**\nLive RMSE 0.08724 is within acceptable range (+-14.1% vs champion 0.10157, ratio 0.859 \u2264 threshold \u00d71.15).",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9280441Z           "inline": false
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9280818Z         },
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9281149Z         {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9281523Z           "name": "\ud83d\udd17 MLflow Evaluation Run",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9282226Z           "value": "http://127.0.0.1:5001",
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9282714Z           "inline": false
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9283085Z         }
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9283407Z       ],
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9283731Z       "footer": {
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9284193Z         "text": "Champion: v2  |  eval run_id: dry-run  |  DRY RUN"
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9284766Z       }
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9285235Z     }
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9285541Z   ]
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9285839Z }
+pipeline	Run DVC pipeline	2026-11-07T12:10:12.9286466Z 2026-11-07 12:10:12 [INFO] jobs.evaluate_pipeline.pipeline: === Evaluation pipeline complete ===
+pipeline	Run DVC pipeline	2026-11-07T12:10:16.0339213Z perf report OK — champion v2 rmse=0.10157430301768203
+pipeline	Run DVC pipeline	2026-11-07T12:10:16.6847922Z Updating lock file 'dvc.lock'
+pipeline	Run DVC pipeline	2026-11-07T12:10:16.6981717Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:16.7395542Z Running stage 'monitor':
+pipeline	Run DVC pipeline	2026-11-07T12:10:16.7397362Z > python src/monitor.py; code=$?; if [ $code -eq 0 ] || [ $code -eq 2 ]; then exit 0; else exit $code; fi
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.6587836Z DRIFT DETECTED  (score=0.70, psi=0.27159207376642003)
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8649554Z Updating lock file 'dvc.lock'
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8780867Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8781534Z To track the changes with git, run:
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8782147Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8782375Z 	git add dvc.lock
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8782618Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8782798Z To enable auto staging, run:
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8783085Z 
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8783268Z 	dvc config core.autostage true
+pipeline	Run DVC pipeline	2026-11-07T12:10:17.8798875Z Use `dvc push` to send your updates to remote storage.
+pipeline	Push DVC outputs	﻿2026-11-07T12:10:18.0905824Z ##[group]Run dvc push || echo "::warning::dvc push failed"
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0906352Z ^[[36;1mdvc push || echo "::warning::dvc push failed"^[[0m
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0959453Z shell: /usr/bin/bash -e {0}
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0959763Z env:
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0960165Z   SUPABASE_URL: ***
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0961715Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0962044Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0962400Z   SUPABASE_BUCKET: processed_data
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0962718Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0963062Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0963413Z   APPROVE: 0
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0963930Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0964387Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0964848Z   S3_ENDPOINT_URL: ***
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0965308Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0965808Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0966341Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0966783Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0967216Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0967659Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Push DVC outputs	2026-11-07T12:10:18.0968030Z ##[endgroup]
+pipeline	Push DVC outputs	2026-11-07T12:10:26.1677355Z 13 files pushed
+pipeline	Drift gate summary	﻿2026-11-07T12:10:26.4314139Z ##[group]Run python src/monitor.py || code=$?
+pipeline	Drift gate summary	2026-11-07T12:10:26.4314600Z ^[[36;1mpython src/monitor.py || code=$?^[[0m
+pipeline	Drift gate summary	2026-11-07T12:10:26.4315252Z ^[[36;1mecho "monitor exit: ${code:-0}" >> "$GITHUB_STEP_SUMMARY"^[[0m
+pipeline	Drift gate summary	2026-11-07T12:10:26.4316126Z ^[[36;1mpython -c "import json;d=json.load(open('reports/drift_report.json'));print('drift:',d['drift_detected'],'score:',d['ks']['drift_score'])" | tee -a "$GITHUB_STEP_SUMMARY"^[[0m
+pipeline	Drift gate summary	2026-11-07T12:10:26.4367889Z shell: /usr/bin/bash -e {0}
+pipeline	Drift gate summary	2026-11-07T12:10:26.4368208Z env:
+pipeline	Drift gate summary	2026-11-07T12:10:26.4368620Z   SUPABASE_URL: ***
+pipeline	Drift gate summary	2026-11-07T12:10:26.4370311Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Drift gate summary	2026-11-07T12:10:26.4370649Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Drift gate summary	2026-11-07T12:10:26.4370992Z   SUPABASE_BUCKET: processed_data
+pipeline	Drift gate summary	2026-11-07T12:10:26.4371297Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Drift gate summary	2026-11-07T12:10:26.4371663Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Drift gate summary	2026-11-07T12:10:26.4372009Z   APPROVE: 0
+pipeline	Drift gate summary	2026-11-07T12:10:26.4372304Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Drift gate summary	2026-11-07T12:10:26.4372818Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Drift gate summary	2026-11-07T12:10:26.4373285Z   S3_ENDPOINT_URL: ***
+pipeline	Drift gate summary	2026-11-07T12:10:26.4373623Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Drift gate summary	2026-11-07T12:10:26.4374118Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Drift gate summary	2026-11-07T12:10:26.4374625Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Drift gate summary	2026-11-07T12:10:26.4375335Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Drift gate summary	2026-11-07T12:10:26.4375836Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Drift gate summary	2026-11-07T12:10:26.4376281Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Drift gate summary	2026-11-07T12:10:26.4376658Z ##[endgroup]
+pipeline	Drift gate summary	2026-11-07T12:10:27.3519432Z DRIFT DETECTED  (score=0.70, psi=0.27159207376642003)
+pipeline	Drift gate summary	2026-11-07T12:10:27.5080260Z drift: True score: 0.6957
+pipeline	Save MLflow registry	﻿2026-11-07T12:10:27.5177954Z ##[group]Run actions/cache/save@v4
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5178310Z with:
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5178555Z   path: mlruns/mlflow.db
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5178839Z   key: mlruns-42370904088
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5179111Z   enableCrossOsArchive: false
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5179389Z env:
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5179756Z   SUPABASE_URL: ***
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5181177Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5181519Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5181859Z   SUPABASE_BUCKET: processed_data
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5182165Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5182501Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5182826Z   APPROVE: 0
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5183151Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5183589Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5184036Z   S3_ENDPOINT_URL: ***
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5184361Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5184825Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5185482Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5185928Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5186355Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5186790Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Save MLflow registry	2026-11-07T12:10:27.5187365Z ##[endgroup]
+pipeline	Save MLflow registry	2026-11-07T12:10:27.6312932Z (node:2745) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Save MLflow registry	2026-11-07T12:10:27.6314315Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Save MLflow registry	2026-11-07T12:10:27.6502788Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/AI-engineering-as3/AI-engineering-as3 --files-from manifest.txt --use-compress-program zstdmt
+pipeline	Save MLflow registry	2026-11-07T12:10:27.7736805Z (node:2745) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+pipeline	Save MLflow registry	2026-11-07T12:10:27.9050077Z Sent 29667 of 29667 (100.0%), 0.2 MBs/sec
+pipeline	Save MLflow registry	2026-11-07T12:10:27.9840393Z Cache saved with key: mlruns-42370904088
+pipeline	Upload reports	﻿2026-11-07T12:10:27.9972993Z ##[group]Run actions/upload-artifact@v4
+pipeline	Upload reports	2026-11-07T12:10:27.9973378Z with:
+pipeline	Upload reports	2026-11-07T12:10:27.9973633Z   name: studio9-reports
+pipeline	Upload reports	2026-11-07T12:10:27.9974065Z   path: reports/
+pipeline	Upload reports	artifacts/metrics/
+pipeline	Upload reports	artifacts/models/*.json
+pipeline	Upload reports	artifacts/preprocessing/
+pipeline	Upload reports	
+pipeline	Upload reports	2026-11-07T12:10:27.9974553Z   if-no-files-found: warn
+pipeline	Upload reports	2026-11-07T12:10:27.9974825Z   compression-level: 6
+pipeline	Upload reports	2026-11-07T12:10:27.9975458Z   overwrite: false
+pipeline	Upload reports	2026-11-07T12:10:27.9975742Z   include-hidden-files: false
+pipeline	Upload reports	2026-11-07T12:10:27.9976033Z env:
+pipeline	Upload reports	2026-11-07T12:10:27.9976405Z   SUPABASE_URL: ***
+pipeline	Upload reports	2026-11-07T12:10:27.9977857Z   SUPABASE_SERVICE_ROLE_KEY: ***
+pipeline	Upload reports	2026-11-07T12:10:27.9978188Z   SUPABASE_RAW_DATA_BUCKET: processed_data
+pipeline	Upload reports	2026-11-07T12:10:27.9978530Z   SUPABASE_BUCKET: processed_data
+pipeline	Upload reports	2026-11-07T12:10:27.9978842Z   DRIFT_REFERENCE_DATE: 2024-07-01
+pipeline	Upload reports	2026-11-07T12:10:27.9979185Z   MLFLOW_TRACKING_URI: sqlite:///mlruns/mlflow.db
+pipeline	Upload reports	2026-11-07T12:10:27.9979530Z   APPROVE: 0
+pipeline	Upload reports	2026-11-07T12:10:27.9979826Z   AWS_ACCESS_KEY_ID: ***
+pipeline	Upload reports	2026-11-07T12:10:27.9980266Z   AWS_SECRET_ACCESS_KEY: ***
+pipeline	Upload reports	2026-11-07T12:10:27.9980788Z   S3_ENDPOINT_URL: ***
+pipeline	Upload reports	2026-11-07T12:10:27.9981125Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Upload reports	2026-11-07T12:10:27.9981614Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+pipeline	Upload reports	2026-11-07T12:10:27.9982089Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Upload reports	2026-11-07T12:10:27.9982515Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Upload reports	2026-11-07T12:10:27.9982938Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+pipeline	Upload reports	2026-11-07T12:10:27.9983365Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+pipeline	Upload reports	2026-11-07T12:10:27.9983728Z ##[endgroup]
+pipeline	Upload reports	2026-11-07T12:10:28.1805448Z (node:2766) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Upload reports	2026-11-07T12:10:28.1806791Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Upload reports	2026-11-07T12:10:28.1930646Z Multiple search paths detected. Calculating the least common ancestor of all paths
+pipeline	Upload reports	2026-11-07T12:10:28.1935369Z The least common ancestor is /home/runner/work/AI-engineering-as3/AI-engineering-as3. This will be the root directory of the artifact
+pipeline	Upload reports	2026-11-07T12:10:28.1937122Z With the provided path, there will be 9 files uploaded
+pipeline	Upload reports	2026-11-07T12:10:28.1941208Z Artifact name is valid!
+pipeline	Upload reports	2026-11-07T12:10:28.1942191Z Root directory input is valid!
+pipeline	Upload reports	2026-11-07T12:10:28.4501470Z Beginning upload of artifact content to blob storage
+pipeline	Upload reports	2026-11-07T12:10:28.4845516Z (node:2766) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+pipeline	Upload reports	2026-11-07T12:10:28.5865744Z Uploaded bytes 3366
+pipeline	Upload reports	2026-11-07T12:10:28.6210090Z Finished uploading artifact content to blob storage!
+pipeline	Upload reports	2026-11-07T12:10:28.6211678Z SHA256 digest of uploaded artifact zip is 5bd26304657a06da545a33ee9189e581e8319f66096b9987593fa012a0d0b05f
+pipeline	Upload reports	2026-11-07T12:10:28.6213067Z Finalizing artifact upload
+pipeline	Upload reports	2026-11-07T12:10:28.9992698Z Artifact studio9-reports.zip successfully finalized. Artifact ID 13573537311
+pipeline	Upload reports	2026-11-07T12:10:28.9995523Z Artifact studio9-reports has been successfully uploaded! Final size is 3366 bytes. Artifact ID is 13573537311
+pipeline	Upload reports	2026-11-07T12:10:29.0000145Z Artifact download URL: https://github.com/LAT-06/AI-engineering-as3/actions/runs/42370904088/artifacts/13573537311
+pipeline	Post Cache pip	﻿2026-11-07T12:10:29.0204719Z Post job cleanup.
+pipeline	Post Cache pip	2026-11-07T12:10:29.1369048Z Cache hit occurred on the primary key Linux-pip-studio9-v1, not saving cache.
+pipeline	Post Cache pip	2026-11-07T12:10:29.1371199Z (node:2778) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Post Cache pip	2026-11-07T12:10:29.1372384Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Post Set up Python	﻿2026-11-07T12:10:29.1494373Z Post job cleanup.
+pipeline	Post Set up Python	2026-11-07T12:10:29.2762876Z (node:2786) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+pipeline	Post Set up Python	2026-11-07T12:10:29.2764012Z (Use `node --trace-deprecation ...` to show where the warning was created)
+pipeline	Post Checkout	﻿2026-11-07T12:10:29.2978095Z Post job cleanup.
+pipeline	Post Checkout	2026-11-07T12:10:29.4117669Z [command]/usr/bin/git version
+pipeline	Post Checkout	2026-11-07T12:10:29.4165243Z git version 2.56.0
+pipeline	Post Checkout	2026-11-07T12:10:29.4209104Z Temporarily overriding HOME='/home/runner/work/_temp/898b4083-7ab8-4a17-8808-c21771752392' before making global git config changes
+pipeline	Post Checkout	2026-11-07T12:10:29.4210772Z Adding repository directory to the temporary git global config as a safe directory
+pipeline	Post Checkout	2026-11-07T12:10:29.4219019Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AI-engineering-as3/AI-engineering-as3
+pipeline	Post Checkout	2026-11-07T12:10:29.4264484Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+pipeline	Post Checkout	2026-11-07T12:10:29.4309464Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+pipeline	Post Checkout	2026-11-07T12:10:29.4662373Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+pipeline	Post Checkout	2026-11-07T12:10:29.4716023Z http.https://github.com/.extraheader
+pipeline	Post Checkout	2026-11-07T12:10:29.4728068Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+pipeline	Post Checkout	2026-11-07T12:10:29.4788254Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+pipeline	Post Checkout	2026-11-07T12:10:29.5128083Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+pipeline	Post Checkout	2026-11-07T12:10:29.5167392Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+pipeline	Complete job	﻿2026-11-07T12:10:29.5639757Z Cleaning up orphan processes
+pipeline	Complete job	2026-11-07T12:10:29.6084374Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache/restore@v4, actions/cache/save@v4, actions/cache@v4, actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

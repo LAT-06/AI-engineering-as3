@@ -1,0 +1,138 @@
+{
+  "reference": "train.csv",
+  "current": "new_data.csv",
+  "n_reference": 1000,
+  "n_current": 50,
+  "ks": {
+    "alpha": 0.05,
+    "threshold": 0.4,
+    "drifted": 16,
+    "tested": 23,
+    "drift_score": 0.6957,
+    "triggered": true,
+    "per_feature": [
+      {
+        "feature": "ghi_fc",
+        "p_value": 2.293775354364325e-09,
+        "drifted": true
+      },
+      {
+        "feature": "dni_fc",
+        "p_value": 0.005950818327153085,
+        "drifted": true
+      },
+      {
+        "feature": "dhi_fc",
+        "p_value": 4.871571198339251e-09,
+        "drifted": true
+      },
+      {
+        "feature": "temp_fc",
+        "p_value": 3.477678514161424e-49,
+        "drifted": true
+      },
+      {
+        "feature": "cloud_fc",
+        "p_value": 5.498839596508662e-08,
+        "drifted": true
+      },
+      {
+        "feature": "wind_fc",
+        "p_value": 3.718816345299548e-11,
+        "drifted": true
+      },
+      {
+        "feature": "wx_source",
+        "p_value": 1.0,
+        "drifted": false
+      },
+      {
+        "feature": "solar_zenith",
+        "p_value": 1.6556323107736025e-13,
+        "drifted": true
+      },
+      {
+        "feature": "solar_azimuth",
+        "p_value": 1.7585802799559424e-11,
+        "drifted": true
+      },
+      {
+        "feature": "ghi_clear",
+        "p_value": 1.6556323107736025e-13,
+        "drifted": true
+      },
+      {
+        "feature": "kt_fc",
+        "p_value": 0.0653559546434301,
+        "drifted": false
+      },
+      {
+        "feature": "poa_fc",
+        "p_value": 0.03718522078566702,
+        "drifted": true
+      },
+      {
+        "feature": "temp_cell_fc",
+        "p_value": 2.652843893730056e-14,
+        "drifted": true
+      },
+      {
+        "feature": "p_phys_norm",
+        "p_value": 0.49931367591307296,
+        "drifted": false
+      },
+      {
+        "feature": "kwp",
+        "p_value": 5.615569808137246e-38,
+        "drifted": true
+      },
+      {
+        "feature": "technology_code",
+        "p_value": 1.735689410065997e-86,
+        "drifted": true
+      },
+      {
+        "feature": "tracking_code",
+        "p_value": 1.0,
+        "drifted": false
+      },
+      {
+        "feature": "tilt_deg",
+        "p_value": 1.0,
+        "drifted": false
+      },
+      {
+        "feature": "surface_azimuth_pvlib",
+        "p_value": 1.0,
+        "drifted": false
+      },
+      {
+        "feature": "hour_sin",
+        "p_value": 0.35912487748964805,
+        "drifted": false
+      },
+      {
+        "feature": "hour_cos",
+        "p_value": 0.03435412978135997,
+        "drifted": true
+      },
+      {
+        "feature": "doy_sin",
+        "p_value": 1.735689410065997e-86,
+        "drifted": true
+      },
+      {
+        "feature": "doy_cos",
+        "p_value": 1.735689410065997e-86,
+        "drifted": true
+      }
+    ]
+  },
+  "psi": {
+    "target": "target_norm",
+    "threshold": 0.2,
+    "value": 0.2716,
+    "triggered": true
+  },
+  "drift_detected": true
+}
