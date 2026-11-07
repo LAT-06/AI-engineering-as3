@@ -19,6 +19,15 @@ bundle. The drift gate writes its verdict to the job summary. Timeouts are
 capped at 60 minutes; training itself takes ~2–3 minutes on CPU (early
 stopping, patience 10).
 
+#heading(level: 2)[Manual trigger proof]
+A `workflow_dispatch` run with `approve=true` exercised the third trigger live:
+the challenger (RMSE 0.10051) beat the runner's champion (0.10157) and the gate
+promoted it on the spot — no push, no schedule involved:
+#figure(
+  image("../figs/fig_promote.png", width: 95%),
+  caption: [Manual dispatch with approval: challenger → `candidate` → `PROMOTED — champion -> v9 (human approved)`. The human gate works from the Actions UI, ready for the live demo.],
+) <fig-promote>
+
 #heading(level: 2)[Secrets]
 Five GitHub Secrets, all read-only credentials for the team's *own* Supabase
 project — never committed (`.env` and `.dvc/config.local` are git-ignored):
