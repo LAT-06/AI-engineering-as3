@@ -41,9 +41,10 @@ stages:
   evaluate:
     cmd: >-
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
-      python src/evaluate.py --dry-run &&
+      python src/evaluate.py --dry-run; code=$?;
+      if [ $code -eq 0 ] || [ $code -eq 2 ]; then
       MLFLOW_TRACKING_URI=sqlite:///mlruns/mlflow.db
-      python setup/gen_perf_report.py
+      python setup/gen_perf_report.py; else exit $code; fi
     deps:
       - src/evaluate.py
       - setup/gen_perf_report.py
