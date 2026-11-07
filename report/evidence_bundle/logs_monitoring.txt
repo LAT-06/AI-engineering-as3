@@ -1,0 +1,28 @@
+=== logs/drift_detection.log (tail) ===
+drift=True score=0.70 psi=0.27159207376642003 ref=1000 cur=50
+drift=True score=0.70 psi=0.27159207376642003 ref=1000 cur=50
+
+=== monitoring/logs/monitoring.log (tail) ===
+drift=True score=0.48 psi=1.2290346738750935
+drift=True score=0.48 psi=1.2290346738750935
+drift=True score=0.48 psi=1.2290346738750935
+drift=True score=0.70 psi=0.27159207376642003
+drift=True score=0.70 psi=0.27159207376642003
+
+=== artifacts/metadata/ ===
+--- artifacts/metadata/data_version.txt
+new_data.csv rows=50 sha=576bc8fc3ba3 validated=2026-11-07T12:12:03.738926+00:00
+--- artifacts/metadata/last_retrain.txt
+2026-11-07T12:12:35.472806+00:00
+--- artifacts/metadata/model_version.txt
+pv-lstm-fleet v8
+
+=== monitoring/alerts/ ===
+alert_20261107_121246.json
+alert_20261107_142930.json
+
+=== logs/training.log (tail) ===
+2026-11-07 19:12:29 [INFO] jobs.retrain_tools.mlflow_helpers: Challenger RMSE 0.09610 >= Champion RMSE 0.09454 — champion retained.
+2026-11-07 19:12:29 [INFO] jobs.retrain_pipeline.pipeline: Challenger did not beat champion (RMSE 0.09610 >= 0.09454). Skipping checkpoint upload to Supabase.
+2026-11-07 19:12:29 [WARNING] jobs.retrain_tools.discord_notify: DISCORD_WEBHOOK_URL not set — skipping Discord notification.
+2026-11-07 19:12:29 [INFO] jobs.retrain_pipeline.pipeline: === Retrain pipeline complete ===

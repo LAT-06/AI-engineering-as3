@@ -1,0 +1,9 @@
+2026-11-07 12:09:53 [INFO] jobs.retrain_tools.evaluation: TEST_RMSE=0.09017  MAE=0.07468  R²=0.8569  (n=4620)
+2026-11-07 12:09:56 [INFO] jobs.retrain_tools.mlflow_helpers: Challenger RMSE 0.09017 < Champion RMSE 0.10157 — assigning 'candidate'.
+2026-11-07 12:09:56 [INFO] jobs.retrain_tools.mlflow_helpers: Alias 'candidate' assigned to pv-lstm-fleet version 5
+PENDING — champion=v2 (set APPROVE=1 to promote v5)
+2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.drift: Drift check: live_rmse=0.08724  champion_test_rmse=0.10157  ratio=0.859  threshold=×1.
+2026-11-07 12:10:12 [INFO] jobs.evaluate_tools.drift: ✅  RETRAIN NOT NEEDED — Live RMSE 0.08724 is within acceptable range (+-14.1% vs champ
+✅  RETRAIN NOT NEEDED
+perf report OK — champion v2 rmse=0.10157430301768203
+DRIFT DETECTED  (score=0.70, psi=0.27159207376642003)
