@@ -1,9 +1,10 @@
-// 02 — Retraining trigger (expanded): rule origins, per-signal evidence, design.
-#heading(level: 1)[Retraining Trigger]
+// 02 — Rubric: Automated Retraining Trigger (8 pts).
+#heading(level: 1)[Automated Retraining Trigger]
 A retrain is justified by two independent signals: *data drift* (the input
 distribution shifted, so the model extrapolates) and *performance drift* (live
 error exceeds the champion baseline by more than 15%). Either signal can start
-the loop; both are checked automatically on every pipeline run.
+the loop; both are checked automatically on every pipeline run — and the loop
+itself fires on data push, on a weekly schedule, and on manual request.
 
 #heading(level: 2)[The rule and where it comes from]
 Thresholds are inherited from the explore team's detector so basic and explore
@@ -16,11 +17,11 @@ inputs (`dhi_fc`, `temp_fc`, `wind_fc`) — exactly the shift (June vs May) that
 motivates retraining before summer patterns dominate.
 
 #heading(level: 2)[Data drift on the Studio-9 layout]
-`src/monitor.py` (basic, 120 lines) ports the same rule to the Studio-9 data
-layout — reference `train/train.csv` (1,000 rows) vs current
-`data/new_data.csv` (latest 50 rows) — and persists machine-readable evidence
-(`reports/drift_report.json`, `artifacts/metrics/monitoring_metrics.json`,
-`monitoring/logs/monitoring.log`). Exit codes follow the group convention:
+`src/monitor.py` (basic) ports the same rule to the Studio-9 data layout —
+reference `train/train.csv` vs current `data/new_data.csv` — and persists
+machine-readable evidence (`reports/drift_report.json`,
+`artifacts/metrics/monitoring_metrics.json`, `monitoring/logs/monitoring.log`,
+plus the Studio-9 paths in §5). Exit codes follow the group convention:
 0 stable, 2 drift, 1 error. On the demo sample:
 
 #figure(
@@ -46,3 +47,17 @@ the pipeline correctly does not retrain on noise. The gate is not toothless,
 however: an earlier evaluation against the v1 baseline measured live RMSE
 0.15772 (+49%), which demanded — and got — further retraining rounds, landing
 on v4 (0.09089) and v6. Drift starts the loop; performance confirms it.
+
+#heading(level: 2)[Live demo: data push retrains by itself]
+Following Studio 9 step C, a fresh June batch (last 50 rows of 2024-06) was
+committed to `data/new_data.csv` and pushed — no manual trigger. GitHub Actions
+detected the push and ran the full pipeline unassisted:
+
+#figure(
+  image("../figs/fig_gh_demo_run.png", width: 90%),
+  caption: [Push-triggered demo run: commit `data: add new June batch` → pipeline Success in 5m25s, reports artefact published.],
+) <fig-demonstration>
+#figure(
+  image("../figs/fig_ci_demo.png", width: 95%),
+  caption: [Demo-run log: June batch scores drift 0.70; CI trains challenger (TEST_RMSE 0.09017, R² 0.8569) → `candidate`; gate stays PENDING without APPROVE=1; live eval holds (ratio 0.859).],
+) <fig-demolog>

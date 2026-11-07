@@ -1,5 +1,5 @@
-// 04 — Actions / CI-CD (expanded).
-#heading(level: 1)[Actions: Retrain on Push]
+// 04 — Rubric: Final GitHub Actions Setup (12 pts).
+#heading(level: 1)[Final GitHub Actions Setup]
 `.github/workflows/retrain-on-push.yml` implements the three required triggers
 in one workflow. *Push* fires on data or code changes (`data/**`, `train/**`,
 `test/**`, `src/**`, `setup/**`, `dvc.yaml`, `config/pipeline.yaml`, the
@@ -16,8 +16,8 @@ the MLflow registry from cache (champion continuity across ephemeral runners),
 configures the DVC remote from secrets, runs `dvc repro`, pushes outputs back
 to S3, re-saves the registry cache, and uploads a `studio9-reports` artefact
 bundle. The drift gate writes its verdict to the job summary. Timeouts are
-capped at 60 minutes; training itself takes ~1 minute on CPU (early stopping,
-patience 10).
+capped at 60 minutes; training itself takes ~2–3 minutes on CPU (early
+stopping, patience 10).
 
 #heading(level: 2)[Secrets]
 Five GitHub Secrets, all read-only credentials for the team's *own* Supabase
@@ -37,7 +37,7 @@ including on cold runners:
 
 #figure(
   image("../figs/fig_gh_run.png", width: 90%),
-  caption: [Latest push-triggered run of `Retrain on Push (Studio 9)` — Success on `main` (8bb29c2), 2m46s, reports artefact published. Address bar shows group repo `LAT-06/AI-engineering-as3`.],
+  caption: [Push-triggered run of `Retrain on Push (Studio 9)` — Success on `main`, reports artefact published. Address bar shows group repo `LAT-06/AI-engineering-as3`.],
 ) <fig-ci>
 #figure(
   image("../figs/fig_gh_repo.png", width: 90%),
@@ -55,12 +55,12 @@ epochs — no overfitting, no wasted compute.
 
 #heading(level: 2)[Registry evidence]
 The MLflow UI (`mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`, viewed
-at `localhost:5050`) shows the same history from the inside: six runs in the
+at `localhost:5050`) shows the same history from the inside: eight runs in the
 `pv-lstm-fleet` experiment, and the registry holding both aliases — `@candidate`
 and `@champion` — on the winning version:
 #figure(
   image("../figs/fig_mlflow_runs.png", width: 90%),
-  caption: [Experiment `pv-lstm-fleet`: six runs, one per challenger (v1–v6).],
+  caption: [Experiment `pv-lstm-fleet`: one run per challenger (v1–v8).],
 ) <fig-mlruns>
 #figure(
   image("../figs/fig_mlflow_registry.png", width: 90%),

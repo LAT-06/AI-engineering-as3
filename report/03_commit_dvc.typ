@@ -1,33 +1,34 @@
-// 03 — Commits, data & DVC (expanded).
-#heading(level: 1)[Commits & DVC Versioning]
+// 03 — Rubric: Commit Structure (4 pts) + DVC Usage (8 pts).
+#heading(level: 1)[Commit Structure]
 Work lives in `LAT-06/AI-engineering-as3` on `main` as small semantic commits —
 each a reviewable step (sample data, DVC remote, monitor, pipeline, vendor
-subset, CI, report), spread across days so history reads as a logbook, not a
+subset, CI, docs), spread across days so history reads as a logbook, not a
 dump:
 
 #figure(
   image("../figs/fig_ev_commits.png", width: 90%),
-  caption: [Semantic commit history on `main`: data → DVC → monitor → pipeline → vendor subset → CI → report.],
+  caption: [Semantic commit history on `main`: data → DVC → monitor → pipeline → vendor subset → CI → docs.],
 ) <fig-commits>
 
 Group-shared code is committed as a minimal import-traced subset, not a blob:
 `src/retrain.py` + `src/evaluate.py`, `jobs/{retrain,evaluate,common}_*`, the
 CSV downloader, `config/pipeline.yaml`, `requirements.txt`. Tracing all three
 entries showed 33 used files and zero `pvdata` imports, so the whole `pvdata/`
-stack, ingest/drift pipelines and unused tools were pruned (396 KB kept of the
-original tree). Full provenance, consent log and the two applied adaptations
-live in PROVENANCE.
+stack, ingest/drift pipelines and unused tools were pruned. Full provenance,
+consent log and the two applied adaptations live in PROVENANCE.
 
+#heading(level: 1)[DVC Usage]
 #heading(level: 2)[Data]
 Training data is six monthly exports (2024-01 → 2024-06, 55,310 rows × 40
 columns) in the team's own Supabase bucket (`processed_data/processed/`),
 plus committed samples for review: `train/train.csv` (rows 1–1000),
-`test/test.csv` (rows 1001–1200), `data/new_data.csv` (last 50 rows).
-`src/preprocess_new_data.py` validates the incoming batch against the train
-schema (fail-fast on mismatch) and stages `artifacts/preprocessing/` +
-`artifacts/data/validated_new_data.csv`. The trainer splits chronologically
-70/15/15 — Train 2024-01→04 (36,027 rows), Val 2024-05 (10,013), Test 2024-06
-(9,270) — into LSTM windows of size 6 (train 18,479 / val 4,681 / test 4,620).
+`test/test.csv` (rows 1001–1200), `data/new_data.csv` (latest batch, currently
+the June demo rows). `src/preprocess_new_data.py` validates the incoming batch
+against the train schema (fail-fast on mismatch) and stages
+`artifacts/preprocessing/` + `artifacts/data/validated_new_data.csv`. The
+trainer splits chronologically 70/15/15 — Train 2024-01→04 (36,027 rows), Val
+2024-05 (10,013), Test 2024-06 (9,270) — into LSTM windows of size 6 (train
+18,479 / val 4,681 / test 4,620).
 
 #heading(level: 2)[DVC pipeline]
 #figure(
@@ -40,14 +41,14 @@ schema (fail-fast on mismatch) and stages `artifacts/preprocessing/` +
 #table(
   columns: 3,
   [*Stage*], [*Runs*], [*Key outputs (DVC-tracked)*],
-  [preprocess], [`src/preprocess_new_data.py`], [`artifacts/preprocessing/`, `artifacts/data/`],
-  [train], [`src/retrain.py` + `setup/snapshot_train.py`], [`artifacts/models/checkpoint.pt`, `training_summary.json`],
+  [preprocess], [`src/preprocess_new_data.py`], [`artifacts/preprocessing/`, `artifacts/data/`, `artifacts/metadata/data_version.txt`],
+  [train], [`src/retrain.py` + `setup/snapshot_train.py`], [`artifacts/models/checkpoint.pt`, `training_summary.json`, `artifacts/metadata/model_version.txt`, `last_retrain.txt`, `logs/training.log`],
   [promote], [`setup/promote_champion.py`], [`artifacts/models/promotion.json`],
-  [evaluate], [`src/evaluate.py` + `setup/gen_perf_report.py`], [`reports/performance_report.html`, `evaluation_metrics.json`],
-  [monitor], [`src/monitor.py`], [`reports/drift_report.json`, `monitoring_metrics.json`],
+  [evaluate], [`src/evaluate.py` + `setup/gen_perf_report.py`], [`reports/performance_report.html`, `reports/monitoring_dashboard.html`, `evaluation_metrics.json`],
+  [monitor], [`src/monitor.py`], [`reports/drift_report.json`, `monitoring/reports/`, `monitoring/alerts/`, `logs/drift_detection.log`, `monitoring_metrics.json`],
 )
 
-The data remote is Supabase S3; `dvc push` versioned 12 outputs and `dvc status`
+The data remote is Supabase S3; `dvc push` versions every output and `dvc status`
 is clean after `dvc repro`:
 
 #figure(
@@ -62,13 +63,13 @@ downloaded `checkpoint.pt` plus `training_summary.json` — while the registry
 itself travels between CI runs via cache (see §4).
 
 #heading(level: 2)[Retraining history]
-Six challengers were trained; each version registers in MLflow, and only
+Eight challengers trained; each version registers in MLflow, and only
 better-than-champion versions upload checkpoints — the loop visibly converges
 instead of churning:
 
 #figure(
   image("../figs/fig_rmse_versions.png", width: 85%),
-  caption: [Test RMSE per version. v4 (0.09089) was best at the time; v6 (0.09454, R² 0.8427) is the current champion.],
+  caption: [Test RMSE per challenger (v1–v8). v4 (0.09089) was best at the time; v6 (0.09454, R² 0.8427) is the current champion; v7/v8 stay candidates.],
 ) <fig-rmse>
 
 #table(
@@ -80,6 +81,8 @@ instead of churning:
   [v4], [0.09089], [0.8546], [better → candidate + uploaded],
   [v5], [0.10221], [0.8161], [worse — upload skipped],
   [v6], [0.09454], [0.8427], [*champion* (human-approved)],
+  [v7], [0.09569], [0.8388], [worse — stays candidate],
+  [v8], [0.09610], [0.8374], [worse — stays candidate],
 )
 Skipped uploads are not failures — the pipeline compares every challenger to
 the champion and only persists improvements, which is why storage holds exactly
